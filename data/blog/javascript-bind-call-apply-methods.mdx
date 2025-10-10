@@ -1,0 +1,102 @@
+---
+title: 'bind(), call(), and apply() in JavaScript'
+publishedAt: '2020-12-06'
+summary: 'Understanding the this keyword and how bind(), call(), and apply() methods work in JavaScript with practical examples.'
+image: '/static/images/acb.webp'
+---
+
+<BlurImage
+  src="/static/images/acb.webp"
+  alt="JavaScript this, bind, call, apply"
+  width="1280"
+  height="720"
+  objectFit="cover"
+/>
+
+While coding in JavaScript, I'm always perplexed on how JavaScript works. It's just as Kyle Simpson says -
+> "I don't think anyone ever really knows JS, not completely anyway."
+
+Any programmer who is learning JavaScript might have come across with `this` keyword for sure. So let's start with `this`. In the process, we will see how bind(), call() and apply() are used with `this`. I hope your doubts resolve after reading this post. Let's begin.
+
+# **What is `this` ?**
+#### **'this' in JavaScript is set to the current environment in which the function is being executed.**
+
+Often good programmers find it astounding and confusing and have a vague citation to `this` keyword.
+Hence, to clearly define the object to which `this` keyword belongs, we need to use methods like `bind()`, `call()` and `apply()`.
+
+# **1. bind()**
+### **The bind() method creates a new function that, when called, has its `this` keyword set to the provided value.**
+
+Here is an example-👁
+
+```javascript
+var user = {
+  name: 'Ryan',
+  getName: function() {
+    return this.name;
+  }
+}
+function displayInfo() {
+  console.log("Hello " + this.getName());
+}
+var getInfo = displayInfo.bind(user);
+getInfo();
+// Hello Ryan
+```
+When we use bind(), a new displayInfo instance is created and binds user object to its `this` keyword. Note: It copies the displayInfo function whenever a new instance is created using bind(). So when we call this.getName() inside the displayInfo, we get the name 'Ryan'. Besides we have the access to all the properties of user object.
+Also, `.bind` allows you to set `this` value now while allowing you to execute the function in the future, because it returns a new function object.
+
+# **2. call()**
+### **call() method calls a function with a given `this` value and and arguments provided individually.**
+What does this mean? 👀
+This means that we can call any function and explicitly specify what _this_ should reference within the calling function.
+
+Here is an example-
+
+```javascript
+var user = {
+  name: 'Ryan',
+  getName: function() {
+    return this.name;
+  }
+}
+function displayInfo(greeting, greet2) {
+  console.log( greeting + ' ' + greet2 +' ' + this.getName() +"?");
+}
+displayInfo.call(user, 'Hello!', 'How are you');
+//Hello! How are you Ryan?
+```
+call() method accepts the first argument as `this` reference and after that we can pass additional arguments to the fucntion. Here, we call displayInfo() with its `this` set to user object and an addition argument greet with value 'Hello'
+`Note:` .call() method doesn't make a copy of function like bind() does. 🤞
+
+# **3. apply()**
+### **apply() method is similar to call() method. Both serve the exact same purpose.**
+`Note:` _The only difference between call() and apply()_ is that call() expects all parameters to be passed in individually, whereas apply() expects a single array of all arguments to be passed in.
+
+Here is an example-
+
+```javascript
+var user = {
+  name: 'Ryan',
+  getName: function() {
+    return this.name;
+  }
+}
+function displayInfo(greeting, greet2) {
+  console.log( greeting + ' ' + greet2 +' ' + this.getName() +"?");
+}
+displayInfo.call(user, 'Hello!', 'How are you');
+//Hello! How are you Ryan?
+
+displayInfo.apply(user, ['Hello!' , 'How are you']);
+//Hello! How are you Ryan?
+```
+#### Where to use?
+1. Use `.bind()` when you want that function to later be called with a certain context useful in events.
+2. Use `.call()` or `.apply()` when you want to invoke the function immediately, and modify the context.
+
+You can refer to [mdn docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) to read more about it and see the real implementation.
+
+Such built-in methods in JavaScript can be useful to any programmer or coder. 👾✌
+
+I hope you find this post useful and informative. Share your feedback on comments section. If you have queries, reach out to me on [linkedin](https://www.linkedin.com/in/rajat-mehra-1a0349a9/), [instagram](https://www.instagram.com/frontend_ryan), [github](https://github.com/rajat-mehra05), [twitter](https://twitter.com/_rajat_mehra_). 😀

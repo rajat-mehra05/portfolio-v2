@@ -1,0 +1,98 @@
+---
+title: 'What is Async/Await?'
+publishedAt: '2021-01-26'
+summary: A beginner's guide to understanding asynchronous JavaScript using async/await with practical examples and real-world analogies.
+image: '/static/images/banner.png'
+---
+
+<BlurImage
+  src="/static/images/banner.png"
+  alt="Async/Await Guide"
+  width="1920"
+  height="1080"
+  objectFit="cover"
+/>
+
+Most of us as developers use these keywords in our daily lives while coding, so I thought to give it a brief from my own understanding. I hope you find this post useful by the end of this post. Let's go!😊
+
+# **What is Async ?**
+
+Let's understand with a basic example from our real world.
+Most of us have ordered food online via Zomato, Swiggy, etc or did online shopping from several apps in market.
+Assuming we ordered any food item, say Chicken Biryani(it's my fav, you can assume your fav food 😁).
+- Step 1. Order Chicken Biryani from app.
+- Step 2. Complete all formalities(filling details).
+- Step 3. Ah, Chicken Biryani arrives.😉
+- Step 4. Eat it now alone. (don't share)😁
+
+Here when you order a food item, a promise is returned to you i.e. whether the food is ordered successfully or rejected(issue sometimes).
+
+`async` can be placed before a function. When you put `async` before a function, it simply means that the function will return a promise. A resolved promise can have values wrapped inside it automatically.
+
+```jsx
+async function greeting() {
+  return 'hello';
+}
+
+greeting().then(alert);
+//hello
+```
+Here, this function returns a resolved promise with the result of `hello`
+
+### **Why Async**
+
+You don't need to add complex multithreading if you add `async`.
+Async function gives the freedom of writing clear-cut and concise syntax.
+- Simpler code than multithreading
+- Debugging is easier
+- Easy to scale
+- Callback hell can be avoided
+
+### **Why the need of async await when Promises can do the same job?**
+
+`async/await` simply provides a synchronous feel to asynchronous code. We can say that `async` works as syntactical sugar for promises.
+
+```jsx
+// Async/Await
+const asyncGreeting = async () => 'Hello';
+// Promises
+const promiseGreeting = () => new Promise(((resolve) => {
+  resolve('Hi');
+}));
+asyncGreeting().then(result => console.log(result));
+promiseGreeting().then(result => console.log(result));
+```
+For simple queries and data manipulation, Promises can be simple, but if you run into scenarios where there's complex data manipulation and whatnot involved, it's easier to understand what's going on if the code simply looks as though it's synchronous, thats why `async/await` come handy.
+
+## **What is Await?**
+
+`await` keyword is used only inside an `async` function. `await` makes asynchronous functions halt/pause and returns whatever the async function returns when it is done.
+
+```jsx
+async function greeting() {
+
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("success!"), 1000)
+  });
+
+ let result = await promise; // wait until the promise resolves
+
+ alert(result); // "success!"
+}
+
+greeting();
+```
+`await` literally suspends the function execution until the promise settles, and then resumes it with the promise result.
+
+### **Advantages of Async/Await**
+
+- Makes non-blocking API look like blocking
+- Clean and linear(understandable) syntax
+- Easier to debug
+- Maintainable code
+
+### **That's it!**
+
+I just tried to give you a little jist of what `async/await` functions are. You can refer to [docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) to learn more.
+
+I hope you find this post useful and informative. Share your feedback on comments section. If you have queries, reach out to me on [linkedin](https://www.linkedin.com/in/rajat-mehra-1a0349a9/), [instagram](https://www.instagram.com/frontend_ryan), [github](https://github.com/rajat-mehra05), [twitter](https://twitter.com/_rajat_mehra_). 😀

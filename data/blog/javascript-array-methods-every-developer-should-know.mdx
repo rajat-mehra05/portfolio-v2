@@ -1,0 +1,232 @@
+---
+title: 'High Order Functions and Arrays in JavaScript'
+publishedAt: '2020-12-08'
+summary: A comprehensive guide to JavaScript array methods including forEach, filter, map, sort, and reduce with practical examples and real-world use cases.
+image: '/static/images/banner.png'
+---
+
+<BlurImage
+  src="/static/images/banner.png"
+  alt="JavaScript Array Methods Guide"
+  width="2337"
+  height="1025"
+  objectFit="cover"
+/>
+
+While learning JavaScript, I had actually missed these topics and was about to switch to React JS. Luckily, I didn't skip these topics and learnt these functions and methods as well. Hence, whoever is learning JavaScript should read this blog before learning React.🙌
+
+# **1. forEach()**
+
+The `forEach()` method calls a function once for each element in an array, without mutating the array. It is one of the useful methods while iterating through items in an array.
+`forEach()` takes two arguments - first being the callback function which is called for each item in an array and the second argument is optional which refers to the value of `this` set in the callback.
+> Syntax:
+array.forEach(callback [ , thisArgument])
+
+#### Here is an example-
+```javascript
+const companies = [
+  { name: "amazon" , start: 1971, end: 2001},
+  { name: "netflix" , start: 1972, end: 2004},
+  { name: "flipkart" , start: 1971, end: 2009}
+  ];
+
+companies.forEach(company => {
+  	console.log(company);
+});
+//Object { name: "amazon", start: 1971, end: 2001 }
+//Object { name: "netflix", start: 1972, end: 2004 }
+//Object { name: "flipkart", start: 1971, end: 2009 }
+```
+`company` is a callback function here. `companies.forEach(company)` executes `company` function for every item in `companies`, setting the iterated item as a first argument. That's how `forEach()` method works.
+
+Now if we want to iterate to items with only name property in the array `companies`, here is how we do it:
+```javascript
+const companies = [
+  { name: "amazon" , start: 1971, end: 2001},
+  { name: "netflix" , start: 1972, end: 2004},
+  { name: "flipkart" , start: 1971, end: 2009}
+  ];
+
+companies.forEach( company => {
+  	console.log(company.name);
+});
+// "amazon"
+// "netflix"
+// "flipkart"
+```
+#### Where to use forEach() ?
+`forEach()` is widely used to iterate array items, without breaking and having simultaneously some side-effect. Or you can go for [array methods](https://javascript.info/array-methods) as an alternative.
+
+# **2. filter()**
+
+The `filter()` method creates a new array with all elements that pass the test implemented by the provided function. If no elements pass the test, an empty array will be returned.
+
+> Syntax:
+array.filter(function(currentValue, index, arr), thisValue)
+`thisValue` is an optional parameter.
+
+#### Lets say we want to filter out the adults below 21 y
+rs of age, here is an example-
+```javascript
+const ages = [45,67,7,21,4,19,11];
+
+const adultPersons = ages.filter( age => {
+ 	if(age>=21) {
+    	return true;
+    }
+});
+console.log(adultPersons);
+// Array [45, 67, 21]
+```
+We created a new variable `adultPersons` where we could store all the array items of `ages` which passed the test that we provided in the function.
+
+#### Another example of `filter()` method where we want to get companies which started in 1971-
+```javascript
+const companies = [
+  { name: "amazon" , start: 1971, end: 2001},
+  { name: "netflix" , start: 1972, end: 2004},
+  { name: "flipkart" , start: 1971, end: 2009}
+  ];
+
+const year = companies.filter(company => {
+  	if( company.start == "1971") {
+    return true;
+    }
+});
+console.log(year);
+//output-->  Array [Object { name: "amazon", start: 1971, end: 2001 }, Object { name: "flipkart", start: 1971, end: 2009 }]
+```
+We got two objects from the array `companies` which include `1971` in `start` category.
+
+# **3. map()**
+
+The `map()` method creates a new array with the results of calling a provided function for every array element. This method doesn't execute the function for the array elements without values.
+The `map()` method calls the provided function once for each element in an array, in order.
+
+> Syntax:
+array.map(function(currentValue, index, arr), thisValue)
+`thisValue` is an optional parameter.
+
+#### Here is an example of getting all company names using `map()`-
+```javascript
+const companies = [
+  { name: "amazon" , start: 1971, end: 2001},
+  { name: "netflix" , start: 1972, end: 2004},
+  { name: "flipkart" , start: 1971, end: 2009}
+  ];
+
+const compNames = companies.map(company => {
+  		return company.name;
+    });
+console.log(compNames);
+//Array ["amazon", "netflix", "flipkart"]
+```
+We got a simple array with all the company names. Easy peasy!✌
+
+Now if we want to get the company names and end year using `map()` method, we can use [template literals/strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) too.
+#### Here is an example-
+```javascript
+const array = [
+  { name: "amazon" , start: 1971, end: 2001, owner: "A"},
+  { name: "netflix" , start: 1972, end: 2004, owner: "B"},
+  { name: "flipkart" , start: 1971, end: 2009, owner: "C"}
+  ];
+
+const compNames = array.map(company =>
+   `${company.name} [${company.end} - ${company.owner}]` );
+
+console.log(compNames);
+// Array ["amazon [2001 - A]", "netflix [2004 - B]", "flipkart [2009 - C]"]
+```
+Now we have got an array with each value i.e. company name along with their end year and owner.
+
+#### Another example of `map()` where we can use Math object -
+```javascript
+const num =[ 4 , 16 , 36];
+
+const numSquareRoot = num.map(number => Math.sqrt(number));
+console.log(numSquareRoot);
+//Array [2, 4, 6]
+```
+Simple! isn't it? I hope you have learnt now how to use `map()` method. Practice and you'll learn more.🙌
+
+# **4. sort()**
+
+The `sort()` method sorts the elements of an array in place and returns the sorted array. The sort order can be either alphabetic or numeric as well as ascending or descending.
+> Note -->  the `sort()` method sorts the values as strings in alphabetical and ascending order.
+This method works well for strings ("Ant" comes before "Bat"). However, if numbers are sorted as strings, "30" is bigger than "200", because "3" is bigger than "2".
+Thus, the `sort()` method generates an incorrect result when sorting numbers.
+A "compare function" comes useful for fixing this.
+
+#### Lets say we want to sort the companies on basis of their start years. Here is an example-
+```javascript
+const companies= [
+  { name: "amazon" , start: 1971, end: 2001, owner: "A"},
+  { name: "netflix" , start: 1962, end: 2004, owner: "B"},
+  { name: "flipkart" , start: 1991, end: 2009, owner: "C"}
+  ];
+
+//using short method via ternary operators
+const sortedCompanies = companies.sort((a,b) => (a.start > b.start ? 1 : -1));
+console.log(sortedCompanies);
+//Array [Object { name: "netflix", start: 1962, end: 2004, owner: "B" }, Object { name: "amazon", start: 1971, end: 2001, owner: "A" }, Object { name: "flipkart", start: 1991, end: 2009, owner: "C" }]
+```
+Here the `sort()` method takes a function that takes two values `a` and `b` and compares them on the basis of their `start` date.
+Note -> `a` denotes company one and `b` denotes company two.
+
+#### Another example of `sort()` -
+```javascript
+const num = [34,4,67,12,1];
+const sortNum = num.sort();
+console.log(sortNum);
+//output->  Array [1, 12, 34, 4, 67]
+
+//for ascending order
+const numAscend = num.sort((a,b) => a-b);
+console.log(numAscend);
+//output->  Array [1, 4, 12, 34, 67]
+
+// for descending order
+const numDescend = num.sort((a,b)=> b-a);
+console.log(numDescend);
+//output->  Array [67, 34, 12, 4, 1]
+```
+# **5. reduce()**
+
+The `reduce()` method reduces the array to a single output value. This method executes a provided function for each value of the array (from left-to-right). The return value of the function is stored in an accumulator(total).
+
+>Syntax:
+array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+
+>Note: reduce() does not execute the function for array elements without values.
+
+#### Here is an example of finding sum of numbers in an array using `reduce` method -
+```javascript
+const num = [45,5,2,10];
+
+const sum = num.reduce(function(total, number){
+		return total + number;
+},0);
+
+console.log(sum);
+// 62
+```
+Here, we pass two arguments `total` and `number` as arguments in the function. `total` denotes previously returned value of the function and `number` denotes the value of current element. We have also passed second parameter `0` which means its going to start from 0.
+You can use arrow functions too. I didn't use arrow functions so that beginners could understand what's happening with the function.
+
+#### Another example of `reduce` method to get total years for all companies-
+```javascript
+const companies= [
+  { name: "amazon" , start: 1970, end: 2000, owner: "A"},
+  { name: "netflix" , start: 1960, end: 2000, owner: "B"},
+  { name: "flipkart" , start: 1990, end: 2010, owner: "C"}
+  ];
+
+const totalYears = companies.reduce((total, company) =>
+	total + (company.end - company.start),0);
+
+console.log(totalYears);
+//90
+```
+
+I hope you find this post useful and informative. Share your feedback on comments section. If you have queries, reach out to me on [linkedin](https://www.linkedin.com/in/rajat-mehra-1a0349a9/), [instagram](https://www.instagram.com/frontend_ryan), [github](https://github.com/rajat-mehra05), [twitter](https://twitter.com/_rajat_mehra_). 😀
