@@ -16,7 +16,6 @@ const SECTIONS = {
   projects: 'Projects',
   dashboard: 'Dashboard',
   home: 'Home',
-  uses: 'Uses',
   tweets: 'Tweets',
   goto: 'Go to',
   general: 'General',
@@ -44,16 +43,7 @@ export const actions: Array<Action> = [
     subtitle: 'Showcase of my projects I build over the last year.',
     icon: HiOutlineSparkles
   },
-  {
-    id: 'uses',
-    name: 'Uses',
-    shortcut: ['u'],
-    keywords: 'uses laptop phone wfh setup pc',
-    perform: () => router.push('/uses'),
-    section: SECTIONS.goto,
-    subtitle: 'Gear that I use that make me productive',
-    icon: HiOutlineDesktopComputer
-  },
+
   {
     id: 'social-github',
     name: 'GitHub',
