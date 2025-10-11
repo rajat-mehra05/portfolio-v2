@@ -1,22 +1,27 @@
 import Image from 'next/image';
-import * as React from 'react';
-import Lightbox from 'react-image-lightbox';
+import { Gallery, Item } from 'react-photoswipe-gallery';
 
-import 'react-image-lightbox/style.css';
+import 'photoswipe/dist/photoswipe.css';
 
 export function LightBoxImage(props) {
-  const [open, setOpen] = React.useState(false);
   return (
-    <>
-      <Image
-        alt={props.alt}
-        className="rounded-lg overflow-hidden cursor-pointer"
-        {...props}
-        onClick={() => setOpen(true)}
-      />
-      {open && (
-        <Lightbox mainSrc={props.src} onCloseRequest={() => setOpen(false)} />
-      )}
-    </>
+    <Gallery>
+      <Item
+        original={props.src}
+        thumbnail={props.src}
+        width={props.width || 1024}
+        height={props.height || 768}
+      >
+        {({ ref, open }) => (
+          <Image
+            ref={ref}
+            alt={props.alt}
+            className="rounded-lg overflow-hidden cursor-pointer"
+            {...props}
+            onClick={open}
+          />
+        )}
+      </Item>
+    </Gallery>
   );
 }
