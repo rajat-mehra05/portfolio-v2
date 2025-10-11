@@ -9,9 +9,9 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
   const { geo } = req;
   const ContentSecurityPolicy = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com cdn.mxpnl.com snack.expo.io snack.expo.dev;
-    child-src *.youtube.com *.google.com *.twitter.com snack.expo.io snack.expo.dev;
-    style-src 'self' 'unsafe-inline' *.googleapis.com snack.expo.io snack.expo.dev;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com cdn.mxpnl.com;
+    child-src *.youtube.com *.google.com *.twitter.com;
+    style-src 'self' 'unsafe-inline' *.googleapis.com;
     img-src * blob: data:;
     media-src 'none';
     connect-src *;

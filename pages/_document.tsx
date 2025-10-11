@@ -23,11 +23,7 @@ export default function Document(props) {
           href="https://cdn.usefathom.com"
           crossOrigin=""
         />
-        <link
-          rel="preconnect"
-          href="https://snack.expo.io/embed.js"
-          crossOrigin=""
-        />
+
         <link
           href="/static/favicons/android-icon-192x192.jpg"
           rel="apple-touch-icon"

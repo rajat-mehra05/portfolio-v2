@@ -117,17 +117,17 @@ const contentLayerConfig = makeSource({
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
-      rehypeSlug,
-      rehypeCodeTitles,
-      rehypePrism,
+      rehypeSlug as any,
+      rehypeCodeTitles as any,
+      rehypePrism as any,
       [
-        rehypeAutolinkHeadings,
+        rehypeAutolinkHeadings as any,
         {
           properties: {
             className: ['anchor']
           }
         }
-      ]
+      ] as any
     ]
   }
 });

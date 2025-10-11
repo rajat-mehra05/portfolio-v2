@@ -9,7 +9,14 @@ import { actions } from 'lib/KBarActions';
 import { KBarPortal } from 'components/KBar/KBar';
 import Script from 'next/script';
 
-export default function App({ Component, pageProps }: AppProps) {
+interface CustomAppProps extends AppProps {
+  pageProps: {
+    session?: any;
+    [key: string]: any;
+  };
+}
+
+export default function App({ Component, pageProps }: CustomAppProps) {
   useAnalytics();
 
   return (

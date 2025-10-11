@@ -14,7 +14,7 @@ import { MdOutlineReplay } from 'react-icons/md';
 import React, { useRef, useState } from 'react';
 import { LightBoxImage } from './LightboxImage';
 import clsx from 'clsx';
-import { Snack } from 'mdx-embed/dist/components/snack';
+
 import { KbdIcon } from './KBar/KBarFooter';
 
 export function Pre(props: React.ComponentPropsWithRef<'pre'>) {
@@ -130,7 +130,7 @@ const MDXComponents = {
   LightBoxImage,
   BlurImage,
   pre: Pre,
-  Snack,
+
   VideoPlayer,
   KbdIcon
 };
