@@ -3,14 +3,13 @@ import { parseISO, format } from 'date-fns';
 
 import Container from 'components/Container';
 import Subscribe from 'components/Subscribe';
-import ViewCounter from 'components/ViewCounter';
 import type { PropsWithChildren } from 'react';
 import type { Blog } from 'contentlayer/generated';
 
 const editUrl = (slug) =>
   `https://github.com/rajat-mehra05/portfolio/edit/main/data/blog/${slug}.mdx`;
 const discussUrl = (slug) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(
+  `https://x.com/search?q=${encodeURIComponent(
     `https://rajatmehra.dev/blog/${slug}`
   )}`;
 
@@ -46,8 +45,6 @@ export default function BlogLayout({
           </div>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
             {post.readingTime.text}
-            {` • `}
-            <ViewCounter slug={post.slug} />
           </p>
         </div>
         <div className="w-full mt-4 prose dark:prose-dark max-w-none">

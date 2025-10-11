@@ -20,9 +20,8 @@ export default function Projects({
           Projects
         </h1>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          I've been working as a software engineer for over 3 years,
-          specializing in modern web technologies. Here's a project that
-          showcases my technical skills and problem-solving approach.
+          I've built a few projects with various stacks and technologies. Check
+          them out and let me know what you think!
         </p>
 
         <div className="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 pt-6 gap-8">

@@ -1,5 +1,4 @@
 import {
-  SiGraphql,
   SiNextdotjs,
   SiPostgresql,
   SiReact,
@@ -12,7 +11,7 @@ import { motion } from 'framer-motion';
 import Container from '../components/Container';
 import BlogPostCard from '../components/BlogPostCard';
 import ProjectCard from 'components/ProjectCard';
-import { VideoLibrary, SocialMedia, Ecommerce } from 'components/Icons';
+import { SocialMedia } from 'components/Icons';
 import { Career, career } from 'data/work/career';
 import CareerCard from 'components/CareerCard';
 import { ExternalLink } from 'components/Footer';
@@ -102,10 +101,6 @@ export default function Home({ location }) {
                   <p>Next.js</p>
                 </div>
                 &nbsp;
-                <div className="inline-flex items-center space-x-2 mr-2">
-                  <SiPostgresql color={'#336791'} />
-                  <p>Node.js</p>
-                </div>
               </div>
             </div>
           </div>
@@ -130,7 +125,7 @@ export default function Home({ location }) {
             gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
           />
           <BlogPostCard
-            title="5 JavaScript Array Methods Every Developer Should Know"
+            title="High Order Functions and Arrays in JavaScript"
             slug="javascript-array-methods-every-developer-should-know"
             gradient="from-[#D8B4FE] to-[#818CF8]"
           />

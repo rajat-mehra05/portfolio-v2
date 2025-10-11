@@ -4,7 +4,6 @@ import Image from 'next/image';
 import ProsCard from 'components/ProsCard';
 import ConsCard from 'components/ConsCard';
 import Gumroad from 'components/metrics/Gumroad';
-import Analytics from 'components/metrics/Analytics';
 import Step from 'components/Step';
 import ImageWithTheme from 'components/ImageWithTheme';
 import SplitImage from 'components/SplitImage';
@@ -121,7 +120,6 @@ const MDXComponents = {
   Image: RoundedImage,
   ImageWithTheme,
   a: CustomLink,
-  Analytics,
   ConsCard,
   Gumroad,
   ProsCard,

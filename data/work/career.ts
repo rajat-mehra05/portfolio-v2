@@ -20,7 +20,7 @@ export const career: Array<Career> = [
   {
     title: 'Wednesday Solutions',
     description:
-      'I work as a Software Engineer at Wednesday Solutions, Pune. I have migrated Next.js marketplaces from CSR to SSG, built component libraries with micro-frontends, integrated SDKs for real-time dashboards, and engineered AI-powered automation tools including Slack bots and sentiment analysis workflows.',
+      'I worked as a Software Engineer at Wednesday Solutions, Pune. Migrated a Next.js marketplace from CSR to SSG, built component libraries with micro-frontends, integrated SDKs for real-time dashboards, and engineered AI-powered automation workflows and tools including Slack bots.',
 
     time: `Sep 2022 - Sep 2025 • Full time • ${calculateDifference(
       new Date('2022-09-01'),

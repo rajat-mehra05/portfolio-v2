@@ -18,8 +18,3 @@ model guestbook {
   avatar_url String   @db.VarChar(256)
   email      String?   @unique @db.VarChar(256)
 }
-
-model views {
-  slug  String @id @db.VarChar(128)
-  count BigInt @default(1)
-}

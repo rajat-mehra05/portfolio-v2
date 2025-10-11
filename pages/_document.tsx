@@ -12,7 +12,11 @@ export default function Document(props) {
           crossOrigin="anonymous"
         />
 
-        <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
+        <link
+          href="/static/favicons/android-icon-192x192.jpg"
+          rel="shortcut icon"
+          type="image/jpeg"
+        />
         <link href="/static/favicons/site.webmanifest" rel="manifest" />
         <link
           rel="preconnect"
@@ -25,25 +29,32 @@ export default function Document(props) {
           crossOrigin=""
         />
         <link
-          href="/static/favicons/apple-touch-icon.png"
+          href="/static/favicons/android-icon-192x192.jpg"
           rel="apple-touch-icon"
-          sizes="180x180"
+          sizes="192x192"
+          type="image/jpeg"
         />
         <link
-          href="/static/favicons/favicon-32x32.png"
+          href="/static/favicons/android-icon-36x36.jpg"
           rel="icon"
-          sizes="32x32"
-          type="image/png"
+          sizes="36x36"
+          type="image/jpeg"
         />
         <link
-          href="/static/favicons/favicon-16x16.png"
+          href="/static/favicons/android-icon-72x72.jpg"
           rel="icon"
-          sizes="16x16"
-          type="image/png"
+          sizes="72x72"
+          type="image/jpeg"
         />
         <link
-          color="#4a9885"
-          href="/static/favicons/safari-pinned-tab.svg"
+          href="/static/favicons/android-icon-512x512.jpg"
+          rel="icon"
+          sizes="512x512"
+          type="image/jpeg"
+        />
+        <link
+          color="#da532c"
+          href="/static/favicons/android-icon-512x512.jpg"
           rel="mask-icon"
         />
         <meta content="#ffffff" name="theme-color" />

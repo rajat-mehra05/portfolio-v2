@@ -28,16 +28,7 @@ export default function Dashboard({ location }) {
             Portfolio metrics and visitor analytics.
           </p>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg">
-              <h3 className="text-lg font-semibold text-black dark:text-white mb-2">
-                Page Views
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                Total views across all pages
-              </p>
-            </div>
-
+          <div className="grid gap-6 sm:grid-cols-1">
             <div className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg">
               <h3 className="text-lg font-semibold text-black dark:text-white mb-2">
                 GitHub Stats

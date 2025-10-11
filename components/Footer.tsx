@@ -52,7 +52,7 @@ export default function Footer(props: Props) {
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
-          <ExternalLink href="https://twitter.com/rajat_mehra05">
+          <ExternalLink href="https://x.com/_rajat_mehra_">
             Twitter
           </ExternalLink>
           <ExternalLink href="https://linkedin.com/in/rajat-mehra">

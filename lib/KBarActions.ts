@@ -66,7 +66,7 @@ export const actions: Array<Action> = [
     id: 'social-twitter',
     name: 'Twitter',
     keywords: 'twitter',
-    perform: () => window.open('https://twitter.com/rajat_mehra05', '_blank'),
+    perform: () => window.open('https://x.com/_rajat_mehra_', '_blank'),
     section: SECTIONS.socials,
     icon: AiOutlineTwitter
   }
