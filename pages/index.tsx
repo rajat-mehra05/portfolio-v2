@@ -81,6 +81,72 @@ export default function Home({ location }) {
                   </span>
                 </span>{' '}
               </p>
+              <p className="text-gray-600 dark:text-gray-400 text-lg">
+                I care deeply about{' '}
+                <span
+                  className={clsx(
+                    'bg-gradient-to-r from-pink-500 to-orange-400 bg-clip-text text-transparent dark:from-pink-400 dark:to-orange-300',
+                    'transition-transform duration-500 ease-in-out hover:duration-300'
+                  )}
+                >
+                  accessibility
+                </span>{' '}
+                and believe great design should include{' '}
+                <span
+                  className={clsx(
+                    'group relative transition-all duration-300 ease-in-out'
+                  )}
+                >
+                  <span
+                    className={clsx(
+                      'absolute -inset-0',
+                      'bg-gradient-to-r from-blue-500 to-green-400',
+                      'rounded-lg opacity-20 blur group-hover:opacity-40 group-hover:blur-md',
+                      'animate-tilt'
+                    )}
+                  ></span>
+                  <span className="relative bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent">
+                    everyone
+                  </span>
+                </span>
+                . When I’m not coding, I’m usually{' '}
+                <span
+                  className={clsx(
+                    'bg-gradient-to-r from-amber-500 to-yellow-400 bg-clip-text text-transparent dark:from-yellow-400 dark:to-amber-300',
+                    'transition-transform duration-500 ease-in-out hover:duration-300'
+                  )}
+                >
+                  playing outdoor games
+                </span>
+                , tackling a{' '}
+                <span
+                  className={clsx(
+                    'bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent dark:from-purple-400 dark:to-indigo-400',
+                    'transition-transform duration-500 ease-in-out hover:duration-300'
+                  )}
+                >
+                  Wordle
+                </span>
+                , or heading out on a{' '}
+                <span
+                  className={clsx(
+                    'group relative transition-all duration-300 ease-in-out'
+                  )}
+                >
+                  <span
+                    className={clsx(
+                      'absolute -inset-0',
+                      'bg-gradient-to-r from-green-500 to-teal-400',
+                      'rounded-lg opacity-20 blur group-hover:opacity-40 group-hover:blur-md',
+                      'animate-tilt'
+                    )}
+                  ></span>
+                  <span className="relative bg-gradient-to-r from-green-500 to-teal-400 bg-clip-text text-transparent">
+                    trek
+                  </span>
+                </span>
+                .
+              </p>
             </div>
 
             <div className="mt-3 text-gray-600 dark:text-gray-400 mb-16 ">
