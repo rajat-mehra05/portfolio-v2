@@ -2,7 +2,7 @@
 
 ```
 Enveloperajat.m.5278@gmail.com|MOBILE 9690196671
-Githubgithub.com/rajat-mehra05|LINKEDINlinkedin.com/in/rajat-mehra
+Githubgithub.com/rajat-mehra05|LINKEDINlinkedin.com/in/rajat-mehra-
 ```
 ## Skills
 

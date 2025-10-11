@@ -55,7 +55,7 @@ export default function Footer(props: Props) {
           <ExternalLink href="https://x.com/_rajat_mehra_">
             Twitter
           </ExternalLink>
-          <ExternalLink href="https://linkedin.com/in/rajat-mehra">
+          <ExternalLink href="https://linkedin.com/in/rajat-mehra-">
             LinkedIn
           </ExternalLink>
           <ExternalLink href="https://github.com/rajat-mehra05">
