@@ -186,8 +186,8 @@ export default function Home({ location }) {
         </h3>
         <div className="flex gap-6 flex-col md:flex-row">
           <BlogPostCard
-            title="What is Async/Await?"
-            slug="understanding-async-await-javascript"
+            title="Building Inclusive Web Experiences"
+            slug="web-accessibility"
             gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
           />
           <BlogPostCard
