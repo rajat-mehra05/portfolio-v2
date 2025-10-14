@@ -9,7 +9,7 @@ import {
   HiOutlineTerminal
 } from 'react-icons/hi';
 
-import { AiOutlineGithub, AiOutlineTwitter } from 'react-icons/ai';
+import { AiOutlineGithub, AiOutlineLinkedin, AiOutlineTwitter } from 'react-icons/ai';
 
 const SECTIONS = {
   blogs: 'Blogs',
@@ -51,6 +51,14 @@ export const actions: Array<Action> = [
     perform: () => window.open('https://github.com/rajat-mehra05', '_blank'),
     section: SECTIONS.socials,
     icon: AiOutlineGithub
+  },
+  {
+    id: 'social-linkedin',
+    name: 'LinkedIn',
+    keywords: 'linkedin',
+    perform: () => window.open('https://www.linkedin.com/in/rajat-mehra-', '_blank'),
+    section: SECTIONS.socials,
+    icon: AiOutlineLinkedin
   },
   {
     id: 'social-twitter',
