@@ -95,7 +95,7 @@ export default function Container(props) {
             <MobileMenu />
             <NavItem href="/" text="Home" />
             <NavItem href="/projects" text="Craft" />
-            <NavItem href="/blog" text="Writing" />
+            <NavItem href="/blog" text="Writings" />
           </div>
           <div className="flex items-center space-x-2">
             <button
