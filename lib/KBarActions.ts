@@ -6,7 +6,8 @@ import {
   HiOutlineDesktopComputer,
   HiOutlinePencil,
   HiOutlineSparkles,
-  HiOutlineTerminal
+  HiOutlineTerminal,
+  HiOutlineArchive
 } from 'react-icons/hi';
 
 import { AiOutlineGithub, AiOutlineLinkedin, AiOutlineTwitter } from 'react-icons/ai';
@@ -42,6 +43,16 @@ export const actions: Array<Action> = [
     section: SECTIONS.goto,
     subtitle: 'Showcase of my projects I build over the last year.',
     icon: HiOutlineSparkles
+  },
+  {
+    id: 'vault',
+    name: 'Vault',
+    shortcut: ['v'],
+    keywords: 'vault tools resources',
+    perform: () => router.push('/vault'),
+    section: SECTIONS.goto,
+    subtitle: 'Valuable tools and resources I have come across.',
+    icon: HiOutlineArchive
   },
 
   {
