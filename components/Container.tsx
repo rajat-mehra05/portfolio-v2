@@ -96,6 +96,7 @@ export default function Container(props) {
             <NavItem href="/" text="Home" />
             <NavItem href="/projects" text="Craft" />
             <NavItem href="/blog" text="Writings" />
+            <NavItem href="/vault" text="Vault" />
           </div>
           <div className="flex items-center space-x-2">
             <button
