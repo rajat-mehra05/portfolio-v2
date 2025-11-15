@@ -231,6 +231,14 @@ export default function Home({ location }) {
             stack={['typescript', 'nodejs', 'react']}
             description="A Chrome extension for highlighting webpage text, saving locally, and generating AI summaries."
           />
+          <ProjectCard
+            href="/projects/hackerpedia"
+            title="HackerPedia"
+            brandColor={'#FF6600'}
+            projectLogo={SocialMedia}
+            stack={['react']}
+            description="A modern Hacker News clone with real-time feeds, infinite scroll, nested comments, and dark mode."
+          />
         </motion.ul>
         <Link href="/projects">
           <a
