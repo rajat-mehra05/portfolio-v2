@@ -239,6 +239,14 @@ export default function Home({ location }) {
             stack={['react']}
             description="A modern Hacker News interface with real-time feeds, infinite scroll, nested comments, and dark mode."
           />
+          <ProjectCard
+            href="/projects/chatflow-builder"
+            title="Chatflow Builder"
+            brandColor={'#0EA5E9'}
+            projectLogo={SocialMedia}
+            stack={['react', 'nextjs', 'typescript']}
+            description="A drag-and-drop chatbot flow builder with visual node connections and real-time editing."
+          />
         </motion.ul>
         <Link href="/projects">
           <a
