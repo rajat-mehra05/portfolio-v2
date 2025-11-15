@@ -237,7 +237,7 @@ export default function Home({ location }) {
             brandColor={'#FF6600'}
             projectLogo={SocialMedia}
             stack={['react']}
-            description="A modern Hacker News clone with real-time feeds, infinite scroll, nested comments, and dark mode."
+            description="A modern Hacker News interface with real-time feeds, infinite scroll, nested comments, and dark mode."
           />
         </motion.ul>
         <Link href="/projects">
