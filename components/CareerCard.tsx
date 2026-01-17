@@ -1,17 +1,17 @@
-import { Career, career } from 'data/work/career';
-import { HiLightningBolt } from 'react-icons/hi';
+import { memo } from 'react';
+import Image from 'next/image';
+import { Career } from 'data/work/career';
 import { ExternalLink } from './Footer';
-import { Labels } from './Label';
 
 type Props = {
   career: Career;
   last: boolean;
 };
 
-const CareerCard = ({
+const CareerCard = memo(function CareerCard({
   career: { title, description, time, type, url, logo },
   last
-}: Props) => {
+}: Props) {
   return (
     <li className=" border border-gray-200 my-5 dark:border-gray-800 p-4 rounded-lg animate-scale">
       <div className="relative">
@@ -22,10 +22,12 @@ const CareerCard = ({
           />
         )}
         <div className="relative flex-col md:flex md:flex-row items-start md:space-x-3">
-          <img
-            className="items-center justify-center mb-4 w-8 h-8 rounded-full md:flex md:w-10 md:h-10"
+          <Image
+            className="items-center justify-center mb-4 rounded-full md:flex"
             src={logo}
-            alt="career"
+            alt={`${type} logo`}
+            width={40}
+            height={40}
           />
           <div className="w-full">
             <div className="flex-col items-center justify-between">
@@ -48,6 +50,6 @@ const CareerCard = ({
       </div>
     </li>
   );
-};
+});
 
 export default CareerCard;

@@ -1,6 +1,6 @@
+import { useCallback } from 'react';
 import {
   SiNextdotjs,
-  SiPostgresql,
   SiReact,
   SiTypescript
 } from 'react-icons/si';
@@ -20,6 +20,13 @@ import { trackEvent } from 'lib/analytics';
 import { getCurrentVisitorLocation } from 'lib/location';
 
 export default function Home({ location }) {
+  const handleBlogCTAClick = useCallback(() => {
+    trackEvent('Clicked all blog CTA', {});
+  }, []);
+
+  const handleProjectsCTAClick = useCallback(() => {
+    trackEvent('Clicked all projects CTA', {});
+  }, []);
   const redGradient =
     'bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 text-transparent bg-clip-text';
   return (
@@ -201,19 +208,18 @@ export default function Home({ location }) {
             gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
           />
         </div>
-        <Link href="/blog">
-          <a
-            onClick={() => trackEvent('Clicked all blog CTA', {})}
-            className="group mt-8 text-gray-600 dark:text-gray-400 hover:text-gray-600 transition ease-in-out duration-200"
+        <Link
+          href="/blog"
+          onClick={handleBlogCTAClick}
+          className="group mt-8 text-gray-600 dark:text-gray-400 hover:text-gray-600 transition ease-in-out duration-200"
+        >
+          Explore all blogs{' '}
+          <span
+            aria-hidden="true"
+            className="inline-block translate-x-0 group-hover:translate-x-1 transition-transform ease-in-out duration-200"
           >
-            Explore all blogs{' '}
-            <span
-              aria-hidden="true"
-              className="inline-block translate-x-0 group-hover:translate-x-1 transition-transform ease-in-out duration-200"
-            >
-              →
-            </span>
-          </a>
+            →
+          </span>
         </Link>
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
           Projects
@@ -248,19 +254,18 @@ export default function Home({ location }) {
             description="A drag-and-drop chatbot flow builder with visual node connections and real-time editing."
           />
         </motion.ul>
-        <Link href="/projects">
-          <a
-            onClick={() => trackEvent('Clicked all projects CTA', {})}
-            className="group text-gray-600 dark:text-gray-400 hover:text-gray-600 transition ease-in-out duration-200"
+        <Link
+          href="/projects"
+          onClick={handleProjectsCTAClick}
+          className="group text-gray-600 dark:text-gray-400 hover:text-gray-600 transition ease-in-out duration-200"
+        >
+          See all projects{' '}
+          <span
+            aria-hidden="true"
+            className="inline-block translate-x-0 group-hover:translate-x-1 transition-transform ease-in-out duration-200"
           >
-            See all projects{' '}
-            <span
-              aria-hidden="true"
-              className="inline-block translate-x-0 group-hover:translate-x-1 transition-transform ease-in-out duration-200"
-            >
-              →
-            </span>
-          </a>
+            →
+          </span>
         </Link>
         <div>
           <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
@@ -272,7 +277,7 @@ export default function Home({ location }) {
           <ul className="w-full ">
             {career.map((c: Career, index) => (
               <CareerCard
-                key={index}
+                key={c.title}
                 last={index === career.length - 1}
                 career={c}
               />

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 
 import Container from 'components/Container';
 import BlogPost from 'components/BlogPost';
@@ -10,14 +10,26 @@ export default function Blog({
   posts
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [searchValue, setSearchValue] = useState('');
-  const filteredBlogPosts = posts
-    .sort(
-      (a, b) =>
-        Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
-    )
-    .filter((post) =>
-      post.title.toLowerCase().includes(searchValue.toLowerCase())
-    );
+
+  const handleSearchChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchValue(e.target.value);
+    },
+    []
+  );
+
+  const filteredBlogPosts = useMemo(
+    () =>
+      posts
+        .toSorted(
+          (a, b) =>
+            Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+        )
+        .filter((post) =>
+          post.title.toLowerCase().includes(searchValue.toLowerCase())
+        ),
+    [posts, searchValue]
+  );
 
   return (
     <Container
@@ -35,7 +47,7 @@ export default function Blog({
           <input
             aria-label="Search articles"
             type="text"
-            onChange={(e) => setSearchValue(e.target.value)}
+            onChange={handleSearchChange}
             placeholder="Search articles"
             className="block w-full px-4 py-2 text-gray-900 bg-white border border-gray-200 rounded-md dark:border-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-gray-100"
           />
@@ -63,7 +75,7 @@ export default function Blog({
           </p>
         )}
         {filteredBlogPosts.map((post) => (
-          <BlogPost key={post.title} {...post} />
+          <BlogPost key={post.slug} {...post} />
         ))}
       </div>
     </Container>

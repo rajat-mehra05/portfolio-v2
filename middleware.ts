@@ -6,7 +6,6 @@ export const config = {
 };
 
 export function middleware(req: NextRequest, ev: NextFetchEvent) {
-  const { geo } = req;
   const ContentSecurityPolicy = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com cdn.mxpnl.com;
@@ -38,8 +37,9 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
   response.headers.set('X-DNS-Prefetch-Control', 'on');
 
   const { nextUrl: url } = req;
-  const country = geo.country || 'Unknown Country';
-  const city = geo.city || 'Unknown City';
+  // Geo data is now available via headers in Next.js 15+ (Vercel deployment)
+  const country = req.headers.get('x-vercel-ip-country') || 'Unknown Country';
+  const city = req.headers.get('x-vercel-ip-city') || 'Unknown City';
 
   url.searchParams.set('country', country);
   url.searchParams.set('city', city);

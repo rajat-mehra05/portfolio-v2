@@ -3,14 +3,17 @@ const { withContentlayer } = require('next-contentlayer');
 /**
  * @type {import('next').NextConfig}
  */
-module.exports = withContentlayer()({
-  swcMinify: true,
-  reactStrictMode: true,
+const nextConfig = {
+  reactStrictMode: false,
+  experimental: {
+    optimizePackageImports: ['react-icons', 'framer-motion']
+  },
   images: {
-    domains: [
-      'pbs.twimg.com', // Twitter Profile Picture,
-      'res.cloudinary.com',
-      'flagcdn.com'
+    remotePatterns: [
+      { protocol: 'https', hostname: 'pbs.twimg.com' },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
+      { protocol: 'https', hostname: 'flagcdn.com' },
+      { protocol: 'https', hostname: 'images.unsplash.com' }
     ]
   },
   async redirects() {
@@ -27,4 +30,6 @@ module.exports = withContentlayer()({
       }
     ];
   }
-});
+};
+
+module.exports = withContentlayer(nextConfig);

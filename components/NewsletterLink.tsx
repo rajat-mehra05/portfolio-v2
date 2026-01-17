@@ -9,7 +9,7 @@ export default function NewsletterLink({
   return (
     <li>
       <Link href={`/newsletter/${slug}`}>
-        <a>{format(parseISO(publishedAt), 'MMMM dd, yyyy')}</a>
+        {format(parseISO(publishedAt), 'MMMM dd, yyyy')}
       </Link>
     </li>
   );
