@@ -1,46 +1,14 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useTheme } from 'next-themes';
-import NextLink from 'next/link';
-import cn from 'classnames';
 
 import Footer from 'components/Footer';
 import MobileMenu from 'components/MobileMenu';
-import { GradientBar } from './GradientBar';
+import NavItem from 'components/NavItem';
 import { ImCommand } from 'react-icons/im';
 import { useKBar } from 'kbar';
-import clsx from 'clsx';
 import { trackEvent } from 'lib/analytics';
-
-function NavItem({
-  href,
-  text,
-  disabled
-}: {
-  href: string;
-  text: string;
-  disabled?: boolean;
-}) {
-  const router = useRouter();
-  const isActive = router.asPath === href;
-
-  return (
-    <NextLink href={href}>
-      <a
-        aria-disabled={disabled}
-        className={cn(
-          isActive
-            ? 'font-semibold text-gray-800 dark:text-gray-200'
-            : 'font-normal text-gray-600 dark:text-gray-400',
-          'hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all'
-        )}
-      >
-        <span className="capsize">{text}</span>
-      </a>
-    </NextLink>
-  );
-}
 
 export default function Container(props) {
   const [mounted, setMounted] = useState(false);
@@ -52,6 +20,16 @@ export default function Container(props) {
   const router = useRouter();
 
   const { query } = useKBar();
+
+  const handleCommandPaletteClick = useCallback(() => {
+    trackEvent('Clicked command palette', {});
+    query.toggle();
+  }, [query]);
+
+  const handleThemeToggle = useCallback(() => {
+    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+    trackEvent('Clicked dark mode', {});
+  }, [resolvedTheme, setTheme]);
 
   const meta = {
     title: 'Rajat Mehra - Software Engineer.',
@@ -103,10 +81,7 @@ export default function Container(props) {
               aria-label="Toggle Command Palette"
               type="button"
               className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all"
-              onClick={() => {
-                trackEvent('Clicked command palette', {});
-                query.toggle();
-              }}
+              onClick={handleCommandPaletteClick}
             >
               <ImCommand />
             </button>
@@ -115,10 +90,7 @@ export default function Container(props) {
               aria-label="Toggle Dark Mode"
               type="button"
               className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all"
-              onClick={() => {
-                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
-                trackEvent('Clicked dark mode', {});
-              }}
+              onClick={handleThemeToggle}
             >
               {mounted && (
                 <svg

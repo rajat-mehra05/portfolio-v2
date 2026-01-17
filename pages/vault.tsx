@@ -102,8 +102,8 @@ export default function Vault() {
           Links to valuable tools and resources I've stumbled upon.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-4">
-          {vaultTools.map((tool, index) => (
-            <VaultCard key={index} {...tool} />
+          {vaultTools.map((tool) => (
+            <VaultCard key={tool.title} {...tool} />
           ))}
         </div>
       </div>

@@ -1,13 +1,18 @@
 import 'styles/global.css';
 
 import type { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 import { ThemeProvider } from 'next-themes';
 import { SessionProvider } from 'next-auth/react';
 import { useAnalytics } from 'lib/analytics';
 import { KBarProvider } from 'kbar';
 import { actions } from 'lib/KBarActions';
-import { KBarPortal } from 'components/KBar/KBar';
 import Script from 'next/script';
+
+const KBarPortal = dynamic(
+  () => import('components/KBar/KBar').then((mod) => mod.KBarPortal),
+  { ssr: false }
+);
 
 interface CustomAppProps extends AppProps {
   pageProps: {
@@ -45,7 +50,9 @@ export default function App({ Component, pageProps }: CustomAppProps) {
               }}
             />
           )}
-          <Component {...pageProps} />
+          <div suppressHydrationWarning>
+            <Component {...pageProps} />
+          </div>
         </ThemeProvider>
       </KBarProvider>
     </SessionProvider>

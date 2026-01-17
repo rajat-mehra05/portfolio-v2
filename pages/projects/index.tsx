@@ -26,13 +26,11 @@ export default function Projects({
 
         <div className="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 pt-6 gap-8">
           {/* PROJECT CARD DETAIL */}
-          {projects.map((project, idx) => {
-            return (
-              <div className="rounded h-full" key={idx}>
-                <ProjectCard {...project} />
-              </div>
-            );
-          })}
+          {projects.map((project) => (
+            <div className="rounded h-full" key={project.slug}>
+              <ProjectCard {...project} />
+            </div>
+          ))}
           {/* PROJECT CARD DETAIL END */}
         </div>
       </div>
@@ -42,28 +40,26 @@ export default function Projects({
 
 function ProjectCard({ title, description, image, link, slug, github, logo }) {
   return (
-    <Link passHref href={`/projects/${slug}`}>
-      <div className="flex cursor-pointer items-center justify-center w-full h-full rounded-lg overflow-hidden shadow-sm border border-gray-300/50 dark:border-gray-700 transform transition duration-300 hover:scale-110 hover:shadow-lg active:scale-95 active:shadow-none">
-        <div className="flex items-center justify-center w-full h-full ">
-          <div className=" bg-white dark:bg-gray-800 h-full flex flex-col ">
-            <Image
-              className="w-full"
-              src={image}
-              alt={title}
-              width={400}
-              height={200}
-            />
-            <div className="px-5 pt-4 pb-6 flex-1">
-              <a
-                href={link}
-                className="text-xl inline-block font-semibold no-underline leading-tight dark:text-gray-100 "
-              >
-                <span>{title}</span>
-              </a>
-              <p className="text-sm leading-4 pt-3 dark:text-gray-400 text-gray-500">
-                {description}
-              </p>
-            </div>
+    <Link
+      href={`/projects/${slug}`}
+      className="flex cursor-pointer items-center justify-center w-full h-full rounded-lg overflow-hidden shadow-sm border border-gray-300/50 dark:border-gray-700 transform transition duration-300 hover:scale-110 hover:shadow-lg active:scale-95 active:shadow-none"
+    >
+      <div className="flex items-center justify-center w-full h-full ">
+        <div className=" bg-white dark:bg-gray-800 h-full flex flex-col ">
+          <Image
+            className="w-full"
+            src={image}
+            alt={title}
+            width={400}
+            height={200}
+          />
+          <div className="px-5 pt-4 pb-6 flex-1">
+            <span className="text-xl inline-block font-semibold no-underline leading-tight dark:text-gray-100 ">
+              {title}
+            </span>
+            <p className="text-sm leading-4 pt-3 dark:text-gray-400 text-gray-500">
+              {description}
+            </p>
           </div>
         </div>
       </div>

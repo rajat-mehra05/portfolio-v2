@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback, memo } from 'react';
+import Image from 'next/image';
 import { trackEvent } from 'lib/analytics';
 
 interface VaultCardProps {
@@ -8,23 +9,27 @@ interface VaultCardProps {
   link: string;
 }
 
-const VaultCard: React.FC<VaultCardProps> = ({
+const VaultCard: React.FC<VaultCardProps> = memo(function VaultCard({
   title,
   description,
   image,
   link
-}) => {
-  const handleClick = () => {
+}) {
+  const handleClick = useCallback(() => {
     trackEvent('Clicked vault card', { title });
     window.open(link, '_blank', 'noopener,noreferrer');
-  };
+  }, [title, link]);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      handleClick();
-    }
-  };
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        trackEvent('Clicked vault card', { title });
+        window.open(link, '_blank', 'noopener,noreferrer');
+      }
+    },
+    [title, link]
+  );
 
   return (
     <div
@@ -35,11 +40,14 @@ const VaultCard: React.FC<VaultCardProps> = ({
       role="button"
       aria-label={`Visit ${title}`}
     >
-      <div className="aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
-        <img
+      <div className="aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-900 relative">
+        <Image
           src={image}
           alt={title}
-          className="w-full h-full object-cover"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          className="object-cover"
+          priority={false}
         />
       </div>
       <div className="p-6">
@@ -52,7 +60,7 @@ const VaultCard: React.FC<VaultCardProps> = ({
       </div>
     </div>
   );
-};
+});
 
 export default VaultCard;
 
