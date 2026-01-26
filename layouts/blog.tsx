@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 
 import Container from 'components/Container';
-import Subscribe from 'components/Subscribe';
 import type { PropsWithChildren } from 'react';
 import type { Blog } from 'contentlayer/generated';
 

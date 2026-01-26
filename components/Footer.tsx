@@ -61,6 +61,9 @@ export default function Footer(props: Props) {
           <ExternalLink href="https://github.com/rajat-mehra05">
             GitHub
           </ExternalLink>
+          <ExternalLink href="/rajat_resume.pdf">
+            Resume
+          </ExternalLink>
         </div>
       </div>
       <CurrentVisitorLocation

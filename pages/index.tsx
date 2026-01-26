@@ -45,7 +45,7 @@ export default function Home({ location }) {
                       I work at{' '}
                       <ExternalLink
                         className="relative inline-flex items-center shrink-0 text-gray-900 dark:text-gray-200"
-                        href={'https://wednesday-solutions.com'}
+                        href={'https://wednesday.is'}
                       >
                         Wednesday Solutions
                       </ExternalLink>{' '}
@@ -180,7 +180,7 @@ export default function Home({ location }) {
           <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
             <Image
               src="/avatar.jpg"
-              alt="Rajat Mehra"
+              alt="Your handsome developer"
               width={176}
               height={176}
               className="aspect-1 rounded-full object-cover object-top pointer-events-none"
