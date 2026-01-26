@@ -67,7 +67,7 @@ export const actions: Array<Action> = [
     id: 'social-linkedin',
     name: 'LinkedIn',
     keywords: 'linkedin',
-    perform: () => window.open('https://www.linkedin.com/in/rajat-mehra-', '_blank'),
+    perform: () => window.open('https://www.linkedin.com/in/rajat-mehra05', '_blank'),
     section: SECTIONS.socials,
     icon: AiOutlineLinkedin
   },
