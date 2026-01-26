@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 
 import Container from 'components/Container';
-import Subscribe from 'components/Subscribe';
 import type { PropsWithChildren } from 'react';
 import type { Blog } from 'contentlayer/generated';
 
@@ -50,7 +49,7 @@ export default function BlogLayout({
         <div className="w-full mt-4 prose dark:prose-dark max-w-none">
           {children}
         </div>
-        <div className="text-sm mt-10 text-gray-700 dark:text-gray-300">
+        {/* <div className="text-sm mt-10 text-gray-700 dark:text-gray-300">
           <a
             href={discussUrl(post.slug)}
             target="_blank"
@@ -66,7 +65,7 @@ export default function BlogLayout({
           >
             {'Edit on GitHub'}
           </a>
-        </div>
+        </div> */}
       </article>
     </Container>
   );

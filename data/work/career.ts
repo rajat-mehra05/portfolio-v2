@@ -27,7 +27,7 @@ export const career: Array<Career> = [
       new Date('2025-09-01')
     )}`,
     type: 'Software Engineer',
-    url: 'https://wednesday-solutions.com/',
+    url: 'https://wednesday.is',
     logo: '/static/images/wednesday.jpeg'
   },
   {
@@ -37,7 +37,7 @@ export const career: Array<Career> = [
 
     time: 'Feb 2022 - Apr 2022 • 3 months',
     type: 'Software Engineer',
-    url: 'https://cryptoowl.com/',
+    url: 'https://www.linkedin.com/company/crypto-owl-consultancy/',
     logo: '/static/images/cryptoOwl.jpeg'
   }
 ];

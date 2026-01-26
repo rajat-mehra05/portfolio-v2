@@ -46,13 +46,14 @@ function ProjectCard({ title, description, image, link, slug, github, logo }) {
     >
       <div className="flex items-center justify-center w-full h-full ">
         <div className=" bg-white dark:bg-gray-800 h-full flex flex-col ">
-          <Image
-            className="w-full"
-            src={image}
-            alt={title}
-            width={400}
-            height={200}
-          />
+          <div className="relative w-full h-[200px] overflow-hidden">
+            <Image
+              className="object-cover object-center"
+              src={image}
+              alt={title}
+              fill
+            />
+          </div>
           <div className="px-5 pt-4 pb-6 flex-1">
             <span className="text-xl inline-block font-semibold no-underline leading-tight dark:text-gray-100 ">
               {title}
