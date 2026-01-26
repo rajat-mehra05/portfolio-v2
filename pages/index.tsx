@@ -230,6 +230,14 @@ export default function Home({ location }) {
         </p>
         <motion.ul className="w-full">
           <ProjectCard
+            href="/projects/youtube-transcript-api"
+            title="YouTube Transcript API"
+            brandColor={'#0EA5E9'}
+            projectLogo={SocialMedia}
+            stack={['react', 'nextjs', 'typescript']}
+            description="A lightweight JS/TS library for extracting YouTube transcripts. No API keys required."
+          />
+          <ProjectCard
             href="/projects/website-highlight-saver"
             title="Website Highlight Saver"
             brandColor={'#4F46E5'}
@@ -244,14 +252,6 @@ export default function Home({ location }) {
             projectLogo={SocialMedia}
             stack={['react']}
             description="A modern Hacker News interface with real-time feeds, infinite scroll, nested comments, and dark mode."
-          />
-          <ProjectCard
-            href="/projects/chatflow-builder"
-            title="Chatflow Builder"
-            brandColor={'#0EA5E9'}
-            projectLogo={SocialMedia}
-            stack={['react', 'nextjs', 'typescript']}
-            description="A drag-and-drop chatbot flow builder with visual node connections and real-time editing."
           />
         </motion.ul>
         <Link
