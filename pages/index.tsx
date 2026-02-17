@@ -14,7 +14,6 @@ import ProjectCard from 'components/ProjectCard';
 import { SocialMedia } from 'components/Icons';
 import { Career, career } from 'data/work/career';
 import CareerCard from 'components/CareerCard';
-import { ExternalLink } from 'components/Footer';
 import clsx from 'clsx';
 import { trackEvent } from 'lib/analytics';
 import { getCurrentVisitorLocation } from 'lib/location';
@@ -38,24 +37,8 @@ export default function Home({ location }) {
               Hi, I'm Rajat!
             </h1>
             <div className="space-y-3 mt-2">
-              <span className="inline-flex">
-                <div className="text-gray-600 dark:text-gray-400 text-lg flex items-center">
-                  <div className="flex items-center">
-                    <p>
-                      I work at{' '}
-                      <ExternalLink
-                        className="relative inline-flex items-center shrink-0 text-gray-900 dark:text-gray-200"
-                        href={'https://wednesday.is'}
-                      >
-                        Wednesday Solutions
-                      </ExternalLink>{' '}
-                      as a software engineer.
-                    </p>
-                  </div>
-                </div>
-              </span>
               <p className="text-gray-600 dark:text-gray-400 text-lg">
-                I have a passion for{' '}
+                Frontend Engineer with a passion for{' '}
                 <span
                   className={clsx(
                     redGradient,
@@ -84,9 +67,29 @@ export default function Home({ location }) {
                     )}
                   ></span>
                   <span className="relative bg-gradient-to-r from-blue-500 to-purple-400 bg-clip-text text-transparent">
-                    AI-powered solutions.
+                    AI-driven workflows.
                   </span>
                 </span>{' '}
+              </p>
+              <p className="text-gray-600 dark:text-gray-400 text-lg">
+                I often ship{' '}
+                <span
+                  className={clsx(
+                    'bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent',
+                    'transition-transform duration-500 ease-in-out hover:duration-300'
+                  )}
+                >
+                  open source
+                </span>{' '}
+                tools whenever I get a chance - check out my{' '}
+                <a
+                  href="https://github.com/rajat-mehra05/youtube-transcript-api-js"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-wavy decoration-pink-500 underline-offset-4 hover:text-pink-500 transition-colors duration-200"
+                >
+                  awesome library
+                </a>.{' '}
               </p>
               <p className="text-gray-600 dark:text-gray-400 text-lg">
                 I care deeply about{' '}
