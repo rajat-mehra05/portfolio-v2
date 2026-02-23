@@ -1,7 +1,7 @@
 ---
 title: 'Chatflow Builder'
 publishedAt: '2025-11-15'
-description: 'A drag-and-drop chatbot flow builder with visual node connections, real-time editing, and auto-save functionality. Built with Next.js, React Flow, and TypeScript.'
+description: 'A drag-and-drop chatbot flow builder. Drag nodes, connect them, edit properties in real-time. Built with Next.js, React Flow, and TypeScript.'
 image: '/static/images/chatbuilder-flow.png'
 github: 'https://github.com/rajat-mehra05/chatflow-builder'
 logo: '/static/images/chatbuilder-flow.png'
@@ -9,83 +9,41 @@ link: 'https://chatflow-builder.vercel.app/'
 slug: 'chatflow-builder'
 ---
 
-## Overview
+## Why I Built This
 
-Chatflow Builder is a powerful drag-and-drop chatbot flow builder that makes creating conversational workflows intuitive and visual. Built with Next.js and React Flow, it provides a canvas-based interface where you can design complex chatbot interactions by simply dragging nodes and connecting them together.
+I wanted to understand how node-based visual editors work - the kind you see in tools like n8n, Retool, or Figma's prototyping mode. React Flow was the library I kept seeing recommended, so I picked chatbot flows as the use case: small enough to finish, complex enough to learn from.
+
+The goal was simple: drag nodes onto a canvas, connect them into a conversation flow, edit their content in real-time, and save the result.
 
 ## Working Demo
 
 <img
   src="/static/images/chatflow.gif"
-  alt="Chatflow Builder - Drag-and-drop chatbot flow builder in action"
+  alt="Chatflow Builder - drag-and-drop chatbot flow builder in action"
   width="100%"
   style={{borderRadius: '8px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'}}
 />
 
-_Watch the builder in action: Drag nodes, connect flows, and edit properties in real-time._
+_Drag nodes, connect flows, and edit properties in real-time._
 
 ## Tech Stack
 
 - **Next.js 14** - React framework with App Router
-- **React 18** - Modern UI library with hooks
-- **React Flow 11** - Interactive node-based graph library
-- **TypeScript** - Type-safe development
-- **TailwindCSS** - Utility-first CSS framework
+- **React 18** - UI library
+- **React Flow 11** - Node-based graph library
+- **TypeScript** - Type safety
+- **TailwindCSS** - Styling
 
 ## Key Features
 
-### Visual Flow Builder
-- **Drag & Drop Interface**: Easily add nodes by dragging from the nodes panel onto the canvas
-- **Visual Connections**: Connect nodes by dragging from source to target handles
-- **Interactive Canvas**: Pan, zoom, and navigate your flow with intuitive controls
-- **Node Types**: Support for text message nodes and interactive button nodes
+- **Drag and drop** - Add message or button nodes by dragging them from the panel onto the canvas.
+- **Visual connections** - Wire nodes together by dragging from source to target handles.
+- **Live editing** - Select any node and edit its properties in the settings panel. Changes reflect instantly.
+- **Auto-save** - Flow state saves to localStorage automatically.
+- **Flow validation** - Built-in validation checks that your flow is properly connected before saving.
+- **Two node types** - Text message nodes for conversation content, button nodes for interactive choices.
+- **Pan and zoom** - Navigate large flows with standard canvas controls.
 
-### Real-Time Editing
-- **Settings Panel**: Edit node properties instantly when selected
-- **Live Updates**: Changes reflect immediately on the canvas
-- **Property Editing**: Customize text content, button values, and more
+## What I Learned
 
-### Smart Features
-- **Auto-save**: Flow state is automatically saved to localStorage
-- **Flow Validation**: Built-in validation ensures proper flow structure before saving
-- **Restore Flow**: Easily restore your previous work from local storage
-- **Extensible Architecture**: Designed for easy addition of new node types
-
-## Usage
-
-### Building Your Flow
-1. **Add Nodes**: Drag a node type (Message or Button) from the "Nodes Panel" on the right
-2. **Drop on Canvas**: Place the node anywhere on the canvas
-3. **Connect Nodes**: Click and drag from a node's source handle (right side) to another node's target handle (left side)
-4. **Edit Properties**: Click on any node to select it and edit its properties in the settings panel
-5. **Save Flow**: Click "Save Changes" to validate and save your complete flow
-
-### Node Types
-- **Message Nodes**: Create text messages in your chatbot conversation
-- **Button Nodes**: Add interactive buttons with custom text and values
-
-## Technical Highlights
-
-### Extensible Architecture
-The codebase is structured for easy extension:
-- Modular node component system
-- Centralized node registry for new types
-- Type-safe node definitions with TypeScript
-- Utility functions for node creation and management
-- Validation rules engine for flow integrity
-
-### Performance Features
-- **Efficient State Management**: Optimized React Flow state handling
-- **Local Storage Persistence**: Automatic saving with browser storage
-- **Type Safety**: Full TypeScript coverage for reliability
-- **Responsive Design**: Works seamlessly across different screen sizes
-
-## Project Structure
-
-The application follows a clean, modular architecture:
-- `app/` - Next.js app directory with pages and layouts
-- `components/` - Reusable React components including flow nodes and panels
-- `types/` - TypeScript type definitions for type safety
-- `utils/` - Helper functions for node creation and persistence
-- `lib/` - Configuration and validation logic
-
+React Flow handles the hard parts of node-based UIs - hit detection, edge routing, viewport transforms - but the data model is yours to design. Getting the node type system right (so adding a third or fourth node type is just a new component and a registry entry) took more thought than the visual layer itself. The lesson: in visual editors, the data model matters more than the rendering.

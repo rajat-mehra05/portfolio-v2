@@ -1,7 +1,7 @@
 ---
 title: 'YouTube Transcript API'
 publishedAt: '2026-01-24'
-description: 'A lightweight JavaScript/TypeScript library for extracting transcripts and subtitles from YouTube videos. No API keys required.'
+description: 'A JavaScript/TypeScript library for extracting YouTube transcripts. No API keys, no Selenium. Supports multiple formats and languages.'
 image: '/static/images/npm.png'
 github: 'https://github.com/rajat-mehra05/youtube-transcript-api-js'
 logo: '/static/images/npm.png'
@@ -9,49 +9,32 @@ link: 'https://www.npmjs.com/package/youtube-transcript-api-js'
 slug: 'youtube-transcript-api'
 ---
 
-## Overview
+## Why I Built This
 
-YouTube Transcript API is a lightweight JavaScript/TypeScript library for extracting transcripts and subtitles from YouTube videos without requiring API keys or browser automation tools like Selenium.
+I was building a YouTube video summarizer and needed transcripts. The existing JavaScript libraries either required a YouTube API key or depended on Selenium for browser automation. I didn't want either - an API key adds friction for users, and Selenium is heavy for what should be a simple HTTP request.
+
+So I looked at how YouTube actually serves transcripts (it's an undocumented XML endpoint), reverse-engineered the request flow, and built a library that fetches transcripts with plain HTTP calls. No API keys, no browser automation, no dependencies beyond Axios.
+
+I also noticed the gap on npm - there wasn't a good JS/TS library for this. So I published it as a standalone package.
 
 ## Tech Stack
 
 - **TypeScript** - Type-safe development
 - **Axios** - HTTP requests
 - **Commander.js** - CLI framework
-- **http-proxy-agent** - Proxy functionality
-- **Jest** - Testing framework
+- **http-proxy-agent** - Proxy support
+- **Jest** - Testing
 
 ## Key Features
 
-### Core Functionality
-- **Multiple Caption Types**: Supports both manual and auto-generated captions
-- **Language Flexibility**: Retrieve transcripts in various languages with priority ordering
-- **Translation Support**: Translate transcripts to different languages when available
-- **No Authentication**: Works without YouTube API keys
+- **No API key required** - Works by fetching YouTube's undocumented transcript endpoint directly.
+- **Manual and auto-generated captions** - Supports both caption types with language priority ordering.
+- **Four output formats** - JSON (structured with timestamps), plain text, SRT, and WebVTT.
+- **Translation support** - Translate transcripts to different languages when YouTube provides translations.
+- **CLI tool** - Extract transcripts from the command line without writing code.
+- **Proxy support** - Generic proxy and Webshare rotating proxy integration for high-volume use.
+- **Error handling** - Specific errors for unavailable videos, disabled transcripts, and rate limiting.
 
-### Output Formats
-- **JSON** - Structured data with timestamps
-- **Plain Text** - Simple text extraction
-- **SRT** - SubRip subtitle format
-- **WebVTT** - Web Video Text Tracks format
+## What Came Next
 
-### Advanced Features
-- **CLI Tool**: Command-line interface for quick transcript extraction
-- **Proxy Support**: Generic proxy and Webshare rotating proxy integration
-- **Error Handling**: Comprehensive handling for video unavailability, rate limiting, and network issues
-
-## Installation
-
-```bash
-npm install youtube-transcript-api-js
-```
-
-## Use Cases
-
-- Content analysis and summarization
-- Accessibility tools
-- Search indexing
-- Language learning applications
-- Video summarization
-- Subtitle generation
-- AI/NLP training data collection
+This library became the transcript layer for [Rundownly](/projects/rundownly), a desktop YouTube summarizer I built with Tauri and Rust. The library handles transcript extraction; Rundownly adds AI summarization, timestamps, and a native desktop UI on top of it. What started as an npm package turned into the foundation for a full product.

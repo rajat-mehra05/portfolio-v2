@@ -1,7 +1,7 @@
 ---
 title: 'HackerPedia'
 publishedAt: '2025-11-15'
-description: 'A modern, feature-rich Hacker News clone built with React. Features real-time story feeds, infinite scroll, nested comments, dark mode, and smart caching with localStorage.'
+description: 'A Hacker News client built with React. Real-time feeds, infinite scroll, nested comments, dark mode, and localStorage caching.'
 image: '/static/images/hnc.png'
 github: 'https://github.com/rajat-mehra05/hackerpedia'
 logo: '/static/images/hnc.png'
@@ -9,74 +9,34 @@ link: 'https://hackerpedia.vercel.app/'
 slug: 'hackerpedia'
 ---
 
-## Overview
+## Why I Built This
 
-HackerPedia is a modern, feature-rich Hacker News interface built with React while learning frontend development. This project fetches real-time data from the Hacker News API and delivers a seamless user experience with infinite scrolling, nested comments, and a beautiful dark mode—all without using any state management library like Redux.
+I was learning React and didn't want to build another todo app. I wanted a real API, real data, and enough UI complexity to actually push me - infinite scrolling, recursive comment threads, theming, caching. Hacker News checked every box. The API is public, the data is live, and the UI has genuine depth if you try to get the comment threading right.
 
 ## Tech Stack
 
-- **React** - UI framework with modern functional components
-- **React Hooks** - State and lifecycle management (useState, useEffect, useCallback, useRef)
+- **React** - UI framework with functional components and hooks
 - **Styled Components** - CSS-in-JS with theming support
-- **Material-UI (MUI)** - Layout components and design system
-- **React Router DOM** - Client-side routing and navigation
-- **Axios** - HTTP client for efficient API calls
-- **React Spinners** - Beautiful loading animations
-- **Context API** - Global theme management
-- **PWA** - Progressive Web App capabilities
+- **Material-UI** - Layout components
+- **React Router DOM** - Client-side routing
+- **Axios** - HTTP client
+- **Context API** - Global theme management (no Redux)
 
 ## Key Features
 
-### Core Functionality
-- **Real-time Story Feed**: Fetches and displays top stories from Hacker News API
-- **Infinite Scroll**: Seamlessly loads more stories as you scroll down
-- **Story Metadata**: View points, author, post time, and comment count for each story
-- **External Links**: Direct links to original articles with domain preview
+- **Real-time feed** - Fetches top stories from the Hacker News API with points, author, and comment count.
+- **Infinite scroll** - Loads more stories as you scroll down, no pagination buttons.
+- **Nested comments** - Fully recursive comment threads with proper indentation and collapse/expand.
+- **Dark mode** - Toggle between light and dark themes, persisted in localStorage.
+- **Live search** - Filter stories by title, author, or domain with debounced input.
+- **localStorage caching** - Caches 100 stories and 40 comment threads with a 5-minute TTL. Cached content loads instantly.
+- **HTML sanitization** - Comment content rendered safely.
+- **No authentication required** - Read everything without logging in.
 
-### User Interface
-- **Dark Mode**: Toggle between light and dark themes with persistent localStorage
-- **Responsive Design**: Fully responsive layout that works on desktop, tablet, and mobile
-- **Loading States**: Beautiful loading animations using react-spinners
-- **Clean UI**: Modern, minimalist design inspired by Hacker News
+## Why No Redux
 
-### Search & Discovery
-- **Live Search**: Real-time search with debounced input for better performance
-- **Smart Filtering**: Search across story titles, authors, and domains
-- **Search Results Counter**: Shows the number of matching stories
-- **Clear Search**: Quick clear button and ESC key support
+The app manages story lists, comment threads, theme state, search filters, and cache invalidation. That sounds like a job for a state management library, but React's built-in tools handled all of it. `useState` and `useEffect` cover component state. `useCallback` and `useRef` handle performance. Context API manages the theme globally. Adding Redux would have meant more boilerplate for the same result.
 
-### Comment System
-- **Nested Comments**: Fully recursive comment threads with proper indentation
-- **Comment Collapse/Expand**: Collapse comment threads to focus on what matters
-- **HN-Style UI**: Authentic Hacker News comment styling
-- **Deep Nesting Support**: Handles deeply nested comments with smart indentation caps
-- **HTML Sanitization**: Safe rendering of comment content
-- **No Authentication Required**: View all comments without logging in
+## What I Learned
 
-## Technical Highlights
-
-### Smart Caching Strategy
-The app implements an intelligent caching system to improve performance and reduce API calls:
-
-- **Cache Duration**: 5 minutes TTL (Time To Live)
-- **Storage**: localStorage for persistence across page reloads
-- **Capacity**: 100 stories maximum, 40 comment threads maximum
-- **Benefits**: Faster navigation, reduced API calls, better UX, no loading spinners for cached content
-
-### Performance Features
-- **React Hooks**: Modern functional components with useState, useEffect, useCallback, useRef
-- **Styled Components**: Theme-aware, scoped CSS-in-JS styling
-- **Efficient API Calls**: Axios with error handling and caching
-- **Context API**: Global theme management without Redux
-- **Smart Caching**: localStorage-based caching with 5-minute TTL and LRU eviction
-
-## User Experience
-
-### Intuitive Workflow
-1. **Browse Stories**: Scroll through the main feed of top stories from Hacker News
-2. **Search**: Use the search bar to filter stories by title, author, or domain
-3. **Toggle Theme**: Click the moon/sun icon in the navigation bar for dark mode
-4. **View Comments**: Click on the comment count to view the full discussion
-5. **Collapse Comments**: Click [−] to collapse a comment thread
-6. **Navigate**: Use the back button or browser history to return to the main feed
-
+The comment system was the hardest part. Hacker News comments are deeply nested and each one requires a separate API call. Getting recursive rendering, collapsible threads, and indentation caps to work together taught me more about React's rendering model than any tutorial. The caching layer was the second lesson - once I added localStorage with TTL-based expiry, navigation between pages felt instant, and API calls dropped significantly.
