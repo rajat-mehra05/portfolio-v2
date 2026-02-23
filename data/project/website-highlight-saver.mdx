@@ -1,7 +1,7 @@
 ---
 title: 'Website Highlight Saver'
 publishedAt: '2025-08-28'
-description: 'A Chrome extension that allows users to highlight and save text from any webpage with local storage and AI-powered summarization. Built with a modular, performance-optimized architecture.'
+description: 'A Chrome extension for highlighting and saving text from any webpage. Select text, save it, summarize it with AI. Built with vanilla JavaScript and Chrome Manifest V3.'
 image: '/static/images/web-highlighter.png'
 github: 'https://github.com/rajat-mehra05/website-highlight-saver'
 logo: '/static/images/web-highlighter.png'
@@ -9,79 +9,41 @@ link: 'https://github.com/rajat-mehra05/website-highlight-saver'
 slug: 'website-highlight-saver'
 ---
 
-## Overview
+## Why I Built This
 
-Website Highlight Saver is a powerful Chrome extension that revolutionizes how you capture and organize information from the web. Built with vanilla JavaScript and Chrome Manifest V3 APIs, it enables users to highlight important text on any webpage, save highlights locally, and generate AI-powered summaries for better understanding and retention.
+I kept losing things I'd read. I'd find a great paragraph in a blog post or a key insight in a documentation page, and by the next day it was gone - buried in browser history or forgotten entirely. The usual fix is to copy-paste into a notes app, but that's three steps too many when you're mid-read.
 
-## Tech Stack
+I wanted something that lived inside the browser itself. Highlight text, click save, done. And if the passage was long, let AI summarize it so I could scan it later. This was also my way into Chrome extension development - I vibe coded the initial version but followed standard code practices throughout.
 
-- **Vanilla JavaScript** - Core extension logic with ES6+ features
-- **Chrome Extension APIs (Manifest V3)** - Modern Chrome extension architecture
-- **Chrome Storage API** - Persistent local storage for highlights
-- **OpenAI API** - AI-powered text summarization with GPT models
-- **HTML5 & CSS3** - Modern web standards for UI and styling
-- **DOM APIs** - Advanced DOM manipulation and text node processing
-
-## 🎬 Working Demo
+## Working Demo
 
 <img
   src="/static/images/highlight.gif"
-  alt="Website Highlight Saver - A powerful Chrome extension for highlighting and saving text from any webpage"
+  alt="Website Highlight Saver - highlighting and saving text from a webpage"
   width="100%"
   style={{borderRadius: '8px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'}}
 />
 
-_Watch the extension in action: Select text, save highlights, and navigate between them seamlessly._
+_Select text, save highlights, and navigate between them._
 
-The extension provides a seamless highlighting experience with an intuitive popup interface that appears below your text selection, offering three key actions: Summarize, Save, and Cancel.
+## Tech Stack
 
-## ✨ Key Features
+- **Vanilla JavaScript** - Core extension logic with ES6+
+- **Chrome Manifest V3** - Extension architecture and APIs
+- **Chrome Storage API** - Local persistence for highlights
+- **OpenAI API** - AI-powered text summarization
+- **HTML5 & CSS3** - UI and styling
 
-### Core Functionality
-- **Universal Text Selection**: Highlight any text on any webpage with instant visual feedback
-- **AI-Powered Summarization**: Get intelligent summaries using OpenAI's GPT models
-- **Smart Popup Interface**: Clean, minimal popup with smooth animations and smart positioning
-- **Local Storage**: Secure local storage using Chrome's storage API with cross-session persistence
+## Key Features
 
-### Advanced Features
-- **Search & Filter**: Powerful search through saved highlights by text, domain, or title
-- **Export/Import**: Backup and restore highlights as JSON files
-- **URL Navigation**: Direct navigation to specific highlights via URL fragments
-- **Visual Indicators**: Saved highlights marked with yellow background for easy identification
-- **Responsive Design**: Works seamlessly across desktop and mobile browsers
+- **Highlight anywhere** - Select text on any webpage and save it with one click.
+- **AI summaries** - Summarize long passages using OpenAI's GPT models.
+- **Search and filter** - Find saved highlights by text, domain, or page title.
+- **Export/Import** - Back up highlights as JSON. Restore them on any machine.
+- **URL navigation** - Click a saved highlight to jump back to the exact page.
+- **Visual markers** - Saved highlights appear with a yellow background so you know what you've already captured.
+- **Auto-cleanup** - Old highlights expire after one year. Storage holds ~10,000 highlights in 5MB.
 
-### Performance & Reliability
-- **🚀 Performance Optimized**: Intelligent caching, memory management, and batch DOM operations
-- **🛡️ Error Recovery**: Robust fallback mechanisms and graceful error handling
-- **🧠 Smart Caching**: Caches text nodes and AI responses to avoid duplicate processing
-- **⚡ Memory Management**: Automatic cleanup of caches and temporary data
+## Why Vanilla JS
 
-## User Experience
-
-### Intuitive Workflow
-1. **Select Text**: Highlight any text on any webpage
-2. **Action Popup**: Minimal popup appears with clear action buttons
-3. **Choose Action**: Summarize with AI, save for later, or cancel
-4. **Visual Feedback**: Instant confirmation and persistent highlighting
-
-### Smart Features
-- **Auto-positioning**: Popup intelligently positions to avoid screen edges
-- **Loading States**: Clear feedback during AI processing
-- **Auto-close**: Popups close automatically after appropriate delays
-- **Hover Effects**: Interactive elements with smooth transitions
-
-## Data Management
-
-### Storage Strategy
-- Uses Chrome's `chrome.storage.local` API for persistent storage
-- Stores highlights with rich metadata (URL, title, domain, timestamp)
-- Automatic cleanup of old highlights (1-year retention)
-- Storage capacity: 5MB supporting ~10,000 highlights
-
-## Technical Highlights
-
-### Performance Features
-- **Text Node Caching**: Intelligent DOM text node caching for faster operations
-- **Chunk Processing**: UI-responsive processing of large highlight sets
-- **Batch Operations**: Optimized DOM manipulations
-- **Memory Management**: Automatic cleanup prevents memory leaks
+No React, no framework - just DOM APIs and Chrome's extension platform. A Chrome extension popup is a small surface. Adding a build step and a framework for what amounts to a list view and a few buttons would have been overhead without payoff. Going vanilla meant working directly with the Selection and Range APIs for text highlighting, TreeWalker for text node processing, and Chrome's storage and content script APIs - the kind of things a framework would have abstracted away.
