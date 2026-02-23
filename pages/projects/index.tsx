@@ -69,7 +69,7 @@ function ProjectCard({ title, description, image, link, slug, github, logo }) {
 }
 
 export function getStaticProps() {
-  const projects = allProjects
+  const projects = [...allProjects]
     .sort(
       (a, b) =>
         Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
