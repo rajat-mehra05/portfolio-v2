@@ -1,0 +1,56 @@
+---
+title: 'Rundownly'
+publishedAt: '2026-02-22'
+description: 'A desktop YouTube video summarizer. Paste a link, get a structured summary with timestamps. Built with Tauri 2, Next.js, Rust, and Claude AI.'
+image: '/static/images/rundownly.png'
+github: 'https://github.com/rajat-mehra05/rundownly'
+logo: '/static/images/rundownly.png'
+link: 'https://rundownly.vercel.app/'
+slug: 'rundownly'
+---
+
+## Why I Built This
+
+I watch a lot of YouTube — conference talks, system design deep dives, interviews, podcasts — and most of it is longer than it needs to be. YouTube's "Ask Gemini" feature produces walls of text with no structure, no timestamps, and no way to scan quickly.
+
+I had previously built a web-based version (`yt-video-summariser`) as a full-stack Next.js app, but YouTube blocks transcript requests from cloud/datacenter IPs (AWS, GCP, Vercel) with "Sign in to confirm you're not a bot" walls. The only workaround was a residential proxy at ~$6/month. And I'm broke af :)
+
+If YouTube blocks server IPs but not home IPs, run the whole thing on the user's machine. That's how Rundownly was born — a desktop app that fetches transcripts directly from your IP. You paste a YouTube URL, pick a summary length and language, and get a structured summary with clickable timestamps. Nothing to sign up for, nothing to pay for beyond your own API key.
+
+## Working Demo
+
+<img
+  src="/static/images/rundownly_demo.gif"
+  alt="Rundownly - YouTube video summarizer in action"
+  width="100%"
+  style={{borderRadius: '8px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'}}
+/>
+
+_Paste a YouTube URL, pick your preferences, and get a structured summary with clickable timestamps._
+
+## Tech Stack
+
+- **Tauri 2** - Desktop framework
+- **Next.js 16** - Frontend framework
+- **React 19** - UI library
+- **Rust** - Backend (reqwest, tokio)
+- **Tailwind CSS 4** - Styling
+- **Claude API (Sonnet 4.6)** - AI summarization
+- **react-markdown** - Markdown rendering
+- **tauri-plugin-store** - Local settings storage
+- **OS Keychain** - Secure API key storage
+
+## Key Features
+
+- **Runs locally** — YouTube is accessed from your IP. No server, no IP blocks.
+- **Secure** — API key stored in your OS keychain (macOS Keychain, Windows Credential Manager, Linux Secret Service). Never leaves your machine.
+- **Timestamps** — Summaries link back to exact moments in the video.
+- **11 languages** — English, Spanish, French, German, Portuguese, Japanese, Korean, Chinese, Hindi, Arabic, Assamese.
+- **3 summary lengths** — Short, Medium, or Long.
+- **Dark mode** — Follows your system theme.
+- **Caching** — Re-opening the same video returns the cached summary instantly (24h TTL).
+- **Export** — Download summaries as Markdown or copy to clipboard.
+
+## Why Tauri
+
+I wanted a desktop app with a small footprint. While exploring Tauri and Electron, Tauri was the clear winner. The macOS `.dmg` comes in at ~6MB, the Windows installer at ~3MB. A bare Electron app ships at 150MB+ — roughly 25x the size. Learning Rust along the way was a bonus.

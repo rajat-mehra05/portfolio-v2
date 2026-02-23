@@ -69,18 +69,23 @@ function ProjectCard({ title, description, image, link, slug, github, logo }) {
 }
 
 export function getStaticProps() {
-  const projects = allProjects.map((project) =>
-    pick(project, [
-      'title',
-      'logo',
-      'description',
-      'image',
-      'link',
-      'github',
-      'publishedAt',
-      'slug'
-    ])
-  );
+  const projects = allProjects
+    .sort(
+      (a, b) =>
+        Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+    )
+    .map((project) =>
+      pick(project, [
+        'title',
+        'logo',
+        'description',
+        'image',
+        'link',
+        'github',
+        'publishedAt',
+        'slug'
+      ])
+    );
 
   return { props: { projects } };
 }
