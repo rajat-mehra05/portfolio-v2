@@ -6,7 +6,7 @@ const { withContentlayer } = require('next-contentlayer');
 const nextConfig = {
   reactStrictMode: false,
   experimental: {
-    optimizePackageImports: ['react-icons', 'framer-motion']
+    optimizePackageImports: ['react-icons', 'framer-motion', 'kbar']
   },
   images: {
     remotePatterns: [

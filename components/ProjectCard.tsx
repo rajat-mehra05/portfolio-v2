@@ -67,9 +67,9 @@ const ProjectCard = memo(function ProjectCard({
           </div>
           <div>
             <div className="flex space-x-2">
-              <h4 className="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
+              <h3 className="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
                 {title}
-              </h4>
+              </h3>
             </div>
             <p className="leading-5 text-gray-700 dark:text-gray-300 ">
               {description}

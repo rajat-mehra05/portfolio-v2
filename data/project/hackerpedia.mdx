@@ -35,7 +35,7 @@ I was learning React and didn't want to build another todo app. I wanted a real 
 
 ## Why No Redux
 
-The app manages story lists, comment threads, theme state, search filters, and cache invalidation. That sounds like a job for a state management library, but React's built-in tools handled all of it. `useState` and `useEffect` cover component state. `useCallback` and `useRef` handle performance. Context API manages the theme globally. Adding Redux would have meant more boilerplate for the same result.
+The app manages story lists, comment threads, theme state, search filters, and cache invalidation. That sounds like a job for a state management library, but React's built-in tools handled all of it. <Highlight color="amber">useState</Highlight> and <Highlight color="amber">useEffect</Highlight> cover component state. <Highlight color="orange">useCallback</Highlight> and <Highlight color="orange">useRef</Highlight> handle performance. Context API manages the theme globally. Adding Redux would have meant more boilerplate for the same result.
 
 ## What I Learned
 

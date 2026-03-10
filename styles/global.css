@@ -28,7 +28,7 @@ body {
   color: #fefefe;
 }
 .cursor-newtab {
-  cursor: url('/static/images/new-tab.png') 10 10, pointer;
+  cursor: pointer;
 }
 
 .desk-image img {

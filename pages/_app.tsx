@@ -3,7 +3,6 @@ import 'styles/global.css';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import { ThemeProvider } from 'next-themes';
-import { SessionProvider } from 'next-auth/react';
 import { useAnalytics } from 'lib/analytics';
 import { KBarProvider } from 'kbar';
 import { actions } from 'lib/KBarActions';
@@ -14,19 +13,11 @@ const KBarPortal = dynamic(
   { ssr: false }
 );
 
-interface CustomAppProps extends AppProps {
-  pageProps: {
-    session?: any;
-    [key: string]: any;
-  };
-}
-
-export default function App({ Component, pageProps }: CustomAppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   useAnalytics();
 
   return (
-    <SessionProvider session={pageProps.session}>
-      <KBarProvider
+    <KBarProvider
         actions={actions}
         options={{
           enableHistory: true,
@@ -39,7 +30,7 @@ export default function App({ Component, pageProps }: CustomAppProps) {
           {typeof window != 'undefined' && !(window as any).mixpanel && (
             <Script
               id="mp-script"
-              strategy="afterInteractive"
+              strategy="lazyOnload"
               dangerouslySetInnerHTML={{
                 __html: `
               (function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
@@ -55,6 +46,5 @@ export default function App({ Component, pageProps }: CustomAppProps) {
           </div>
         </ThemeProvider>
       </KBarProvider>
-    </SessionProvider>
   );
 }

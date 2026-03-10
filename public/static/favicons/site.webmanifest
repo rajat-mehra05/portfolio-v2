@@ -1,3 +1,4 @@
+{
   "name": "Rajat Mehra",
   "short_name": "rajatmehra.dev",
   "description": "Software Engineer specializing in TypeScript, React, and Next.js.",
@@ -34,5 +35,5 @@
   "dir": "ltr",
   "lang": "en-US",
   "orientation": "portrait-primary",
-  "start_url": "../../index.html"
+  "start_url": "/"
 }
