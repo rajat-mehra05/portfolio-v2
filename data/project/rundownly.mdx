@@ -13,7 +13,7 @@ slug: 'rundownly'
 
 I watch a lot of YouTube - conference talks, system design deep dives, interviews, podcasts - and most of it is longer than it needs to be. YouTube's "Ask Gemini" feature produces walls of text with no structure, no timestamps, and no way to scan quickly.
 
-I had previously built a web-based version (`yt-video-summariser`) as a full-stack Next.js app, but YouTube blocks transcript requests from cloud/datacenter IPs (AWS, GCP, Vercel) with "Sign in to confirm you're not a bot" walls. The only workaround was a residential proxy at ~$6/month. And I'm broke af :)
+I had previously built a web-based version (<Highlight color="emerald">yt-video-summariser</Highlight>) as a full-stack Next.js app, but YouTube blocks transcript requests from cloud/datacenter IPs (AWS, GCP, Vercel) with "Sign in to confirm you're not a bot" walls. The only workaround was a residential proxy at <Highlight color="orange">~$6/month</Highlight>. And I'm broke af :)
 
 If YouTube blocks server IPs but not home IPs, run the whole thing on the user's machine. That's how Rundownly was born - a desktop app that fetches transcripts directly from your IP, powered by the [YouTube Transcript API](/projects/youtube-transcript-api) library I had built earlier. You paste a YouTube URL, pick a summary length and language, and get a structured summary with clickable timestamps. Nothing to sign up for, nothing to pay for beyond your own API key.
 
@@ -53,4 +53,4 @@ _Paste a YouTube URL, pick your preferences, and get a structured summary with c
 
 ## Why Tauri
 
-I wanted a desktop app with a small footprint. While exploring Tauri and Electron, Tauri was the clear winner. Both the macOS `.dmg` and the Windows installer come in at ~4MB. A bare Electron app ships at 120MB+, roughly 30x the size. Learning about Tauri and Rust along the way was a bonus.
+I wanted a desktop app with a small footprint. While exploring Tauri and Electron, Tauri was the clear winner. Both the macOS <Highlight color="green">.dmg</Highlight> and the Windows installer come in at <Highlight color="orange">~4MB</Highlight>. A bare Electron app ships at <Highlight color="green">120MB+</Highlight>, roughly <Highlight color="pink">30x</Highlight> the size. Learning about Tauri and Rust along the way was a bonus.

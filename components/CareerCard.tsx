@@ -39,9 +39,9 @@ const CareerCard = memo(function CareerCard({
                   {type}
                 </span>
               </ExternalLink>
-              <p className="text-gray-500 text-sm mt-2 md:mt-0">{title}</p>
+              <p className="text-gray-400 text-sm mt-2 md:mt-0">{title}</p>
             </div>
-            <p className="text-sm text-secondary text-gray-500">{time}</p>
+            <p className="text-sm text-secondary text-gray-400">{time}</p>
             <p className="mb-1.5 mt-2 prose text-gray-600 dark:text-gray-300">
               {description}
             </p>

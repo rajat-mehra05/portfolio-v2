@@ -6,8 +6,6 @@ import {
 } from 'react-icons/si';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-
 import Container from '../components/Container';
 import BlogPostCard from '../components/BlogPostCard';
 import ProjectCard from 'components/ProjectCard';
@@ -191,9 +189,9 @@ export default function Home({ location }) {
           </div>
         </div>
 
-        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
+        <h2 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
           From the blog
-        </h3>
+        </h2>
         <div className="flex gap-6 flex-col md:flex-row">
           <BlogPostCard
             title="Building Inclusive Web Experiences"
@@ -224,39 +222,45 @@ export default function Home({ location }) {
             →
           </span>
         </Link>
-        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+        <h2 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
           Projects
-        </h3>
+        </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           I created a few projects to learn more about the technologies I use.
           You can check them out here. Let me know what you think!
         </p>
-        <motion.ul className="w-full">
-          <ProjectCard
-            href="/projects/youtube-transcript-api"
-            title="YouTube Transcript API"
-            brandColor={'#0EA5E9'}
-            projectLogo={SocialMedia}
-            stack={['react', 'nextjs', 'typescript']}
-            description="A lightweight JS/TS library for extracting YouTube transcripts. No API keys required."
-          />
-          <ProjectCard
-            href="/projects/website-highlight-saver"
-            title="Website Highlight Saver"
-            brandColor={'#4F46E5'}
-            projectLogo={SocialMedia}
-            stack={['typescript', 'nodejs', 'react']}
-            description="A Chrome extension for highlighting webpage text, saving locally, and generating AI summaries."
-          />
-          <ProjectCard
-            href="/projects/hackerpedia"
-            title="HackerPedia"
-            brandColor={'#FF6600'}
-            projectLogo={SocialMedia}
-            stack={['react']}
-            description="A modern Hacker News interface with real-time feeds, infinite scroll, nested comments, and dark mode."
-          />
-        </motion.ul>
+        <ul className="w-full">
+          <li>
+            <ProjectCard
+              href="/projects/rundownly"
+              title="Rundownly"
+              brandColor={'#1BCF6C'}
+              projectLogo={SocialMedia}
+              stack={['react', 'nextjs', 'typescript']}
+              description="A 4MB desktop app that summarizes YouTube videos with structured summaries and timestamps. Built with Tauri 2, Next.js, and Rust."
+            />
+          </li>
+          <li>
+            <ProjectCard
+              href="/projects/youtube-transcript-api"
+              title="YouTube Transcript API"
+              brandColor={'#0EA5E9'}
+              projectLogo={SocialMedia}
+              stack={['react', 'nextjs', 'typescript']}
+              description="A JS/TS library for extracting YouTube transcripts with 450+ weekly npm downloads. No API keys required."
+            />
+          </li>
+          <li>
+            <ProjectCard
+              href="/projects/website-highlight-saver"
+              title="Website Highlight Saver"
+              brandColor={'#4F46E5'}
+              projectLogo={SocialMedia}
+              stack={['typescript', 'nodejs', 'react']}
+              description="A Chrome extension for highlighting webpage text, saving locally, and generating AI summaries."
+            />
+          </li>
+        </ul>
         <Link
           href="/projects"
           onClick={handleProjectsCTAClick}
@@ -271,9 +275,9 @@ export default function Home({ location }) {
           </span>
         </Link>
         <div>
-          <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+          <h2 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
             Work Experience
-          </h3>
+          </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-4">
             My work experience so far.
           </p>

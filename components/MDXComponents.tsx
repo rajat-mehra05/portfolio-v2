@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 import ProsCard from 'components/ProsCard';
 import ConsCard from 'components/ConsCard';
@@ -11,8 +12,12 @@ import { BlurImage } from 'components/BlurImage';
 import { MdOutlineReplay } from 'react-icons/md';
 
 import React, { useRef, useState } from 'react';
-import { LightBoxImage } from './LightboxImage';
 import clsx from 'clsx';
+
+const LightBoxImage = dynamic(
+  () => import('./LightboxImage').then((mod) => mod.LightBoxImage),
+  { ssr: false }
+);
 
 import { KbdIcon } from './KBar/KBarFooter';
 
@@ -115,6 +120,39 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoPath }) => {
   );
 };
 
+const HIGHLIGHT_COLORS = {
+  pink: 'from-rose-500 via-pink-500 to-purple-500',
+  blue: 'from-blue-500 to-purple-400',
+  green: 'from-green-500 to-blue-600',
+  emerald: 'from-emerald-500 to-teal-500',
+  orange: 'from-pink-500 to-orange-400',
+  amber: 'from-amber-500 to-yellow-400',
+  indigo: 'from-indigo-500 to-purple-500',
+  cyan: 'from-blue-400 via-cyan-400 to-green-500'
+} as const;
+
+type HighlightColor = keyof typeof HIGHLIGHT_COLORS;
+
+function Highlight({
+  children,
+  color = 'blue'
+}: {
+  children: React.ReactNode;
+  color?: HighlightColor;
+}) {
+  const gradient = HIGHLIGHT_COLORS[color] || HIGHLIGHT_COLORS.blue;
+  return (
+    <span
+      className={clsx(
+        'bg-gradient-to-r bg-clip-text text-transparent',
+        gradient
+      )}
+    >
+      {children}
+    </span>
+  );
+}
+
 const MDXComponents = {
   Image: RoundedImage,
   ImageWithTheme,
@@ -130,7 +168,8 @@ const MDXComponents = {
   pre: Pre,
 
   VideoPlayer,
-  KbdIcon
+  KbdIcon,
+  Highlight
 };
 
 export default MDXComponents;
