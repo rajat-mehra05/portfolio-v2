@@ -47,7 +47,7 @@ export default function Footer(props: Props) {
 
       <div className="w-full max-w-2xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-2">
         <div className="flex flex-col space-y-4">
-          <Link href="/" className="text-gray-400 hover:text-gray-500 transition">
+          <Link href="/" className="text-gray-500 hover:text-gray-600 transition">
             Home
           </Link>
         </div>
