@@ -1,0 +1,67 @@
+# Rajat Mehra — Portfolio
+
+> Frontend Engineer. Building scalable web applications with modern technologies and AI-driven workflows.
+
+## About
+
+Rajat Mehra is a Frontend Engineer who specializes in React, Next.js, and TypeScript. He builds open source tools, advocates for web accessibility, and ships AI-powered products.
+
+- Site: https://rajatmehra.dev
+- GitHub: https://github.com/rajat-mehra05
+- LinkedIn: https://linkedin.com/in/rajat-mehra05
+- Twitter/X: https://x.com/_rajat_mehra_
+- Resume: https://rajatmehra.dev/rajat_resume.pdf
+
+## Projects
+
+### Rundownly
+A 4MB desktop app that summarizes YouTube videos with structured summaries and timestamps. Built with Tauri 2, Next.js 16, React 19, Rust, and Claude API.
+- GitHub: https://github.com/rajat-mehra05/rundownly
+- Live: https://rundownly.vercel.app
+
+### YouTube Transcript API
+JavaScript/TypeScript library for extracting YouTube transcripts. 450+ weekly npm downloads. Supports JSON, plain text, SRT, and WebVTT output formats.
+- GitHub: https://github.com/rajat-mehra05/youtube-transcript-api-js
+- NPM: https://npmjs.com/package/youtube-transcript-api-js
+
+### Website Highlight Saver
+Chrome extension for highlighting and saving webpage text with AI-powered summaries.
+- GitHub: https://github.com/rajat-mehra05/website-highlight-saver
+
+### Chatflow Builder
+Drag-and-drop chatbot flow builder with a node-based visual editor. Built with Next.js 14, React Flow, and TypeScript.
+- GitHub: https://github.com/rajat-mehra05/chatflow-builder
+- Live: https://chatflow-builder.vercel.app
+
+### HackerPedia
+Hacker News client with real-time feeds, infinite scroll, nested comments, and dark mode.
+- GitHub: https://github.com/rajat-mehra05/hackerpedia
+- Live: https://hackerpedia.vercel.app
+
+## Work Experience
+
+### Wednesday Solutions (Sep 2022 – Sep 2025)
+Software Engineer. Migrated a Next.js marketplace from CSR to SSG, built component libraries with micro-frontends, integrated SDKs for real-time dashboards, and engineered AI-powered automation workflows.
+
+### Crypto Owl (Feb 2022 – Apr 2022)
+Software Engineer. Developed UI for crypto websites and built analytics dashboards, attracting 10K monthly users.
+
+## Blog
+
+- "Beyond Barriers: Building Truly Inclusive Web Experiences" — Web accessibility principles and practical implementation: https://rajatmehra.dev/blog/web-accessibility
+- "High Order Functions and Arrays in JavaScript" — Advanced array methods: https://rajatmehra.dev/blog/javascript-array-methods-every-developer-should-know
+- "bind(), call(), and apply() in JavaScript" — Context binding and function invocation: https://rajatmehra.dev/blog/javascript-bind-call-apply-methods
+- "Understanding async/await" — Async patterns and promises: https://rajatmehra.dev/blog/understanding-async-await-javascript
+
+## Pages
+
+- Home: https://rajatmehra.dev
+- Projects: https://rajatmehra.dev/projects
+- Blog: https://rajatmehra.dev/blog
+- Books: https://rajatmehra.dev/books
+- Uses: https://rajatmehra.dev/uses
+- Vault: https://rajatmehra.dev/vault
+
+## Tech Stack
+
+This site is built with Next.js, React, TypeScript, Tailwind CSS, Contentlayer (MDX), and Framer Motion. Deployed on Vercel.
