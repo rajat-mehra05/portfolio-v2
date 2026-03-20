@@ -10,7 +10,7 @@ Rajat Mehra is a Frontend Engineer who specializes in React, Next.js, and TypeSc
 - GitHub: https://github.com/rajat-mehra05
 - LinkedIn: https://linkedin.com/in/rajat-mehra05
 - Twitter/X: https://x.com/_rajat_mehra_
-- Resume: https://rajatmehra.dev/rajat_resume.pdf
+- Resume: https://rajatmehra.dev/rajatresume.pdf
 
 ## Projects
 
