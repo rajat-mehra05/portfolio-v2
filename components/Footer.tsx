@@ -50,6 +50,12 @@ export default function Footer(props: Props) {
           <Link href="/" className="text-gray-500 hover:text-gray-600 transition">
             Home
           </Link>
+          <ExternalLink href="/rajatresume.pdf">
+            Resume
+          </ExternalLink>
+          <ExternalLink href="https://cal.com/rajat-mehra/15min">
+            Schedule A Call
+          </ExternalLink>
         </div>
         <div className="flex flex-col space-y-4">
           <ExternalLink href="https://x.com/_rajat_mehra_">
@@ -60,9 +66,6 @@ export default function Footer(props: Props) {
           </ExternalLink>
           <ExternalLink href="https://github.com/rajat-mehra05">
             GitHub
-          </ExternalLink>
-          <ExternalLink href="/rajat_resume.pdf">
-            Resume
           </ExternalLink>
         </div>
       </div>

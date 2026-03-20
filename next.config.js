@@ -20,7 +20,7 @@ const nextConfig = {
     return [
       {
         source: '/resume',
-        destination: '/rajat_resume.pdf',
+        destination: '/rajatresume.pdf',
         permanent: true
       },
       {
