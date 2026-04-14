@@ -1,0 +1,55 @@
+---
+title: 'VoiceRound'
+publishedAt: '2026-04-14'
+description: 'An open-source AI mock-interview app that listens to you think out loud and tells you where you''re losing the room.'
+image: '/static/images/voice-round.png'
+github: 'https://github.com/rajat-mehra05/voice-round'
+logo: '/static/images/voice-round.png'
+link: 'https://voice-round.vercel.app/'
+slug: 'voice-round'
+---
+
+## Why I Built This
+
+I used to stutter in interviews. Not the "nervous first-minute" kind. The kind where I'd know the answer, start strong and then watch my sentence fall apart somewhere in the middle while the interviewer's face went blank. Afterward I'd replay the moment in my head for days and think: *I know this stuff. Why couldn't I just say it?*
+
+The problem wasn't the knowledge. It was the gap between thinking a thing and saying a thing out loud to a stranger with a timer running.
+
+LeetCode doesn't fix that. Reading answers in your head doesn't fix that. The only thing that fixes it is repetition under something that feels like pressure. And I didn't have anyone willing to mock-interview me every night.
+
+So I built the thing I needed. Pick a topic, pick how many questions, hit record and actually *say* your answer out loud. An AI listens, transcribes and gives you feedback on the answer itself. Not just whether it was technically correct but whether you communicated it like someone who'd get hired.
+
+Then I figured other devs were probably white-knuckling the same problem. So I open-sourced it.
+
+## Tech Stack
+
+- **React 19 + Vite 8 + TypeScript** for the framework
+- **Tailwind v4, Base UI, shadcn and Lucide** for the UI
+- **OpenAI SDK** with Whisper for transcription and GPT for feedback
+- **Dexie (IndexedDB)** for session history
+- **React Router v7** for routing
+- **Vitest, Testing Library and MSW** for testing
+- **ESLint, Prettier, Husky and Lighthouse CI** for quality
+- **Vercel** for static hosting with no backend
+
+## Key Features
+
+- **Voice-first sessions.** Speak your answer like you would in a real interview. 4-minute cap per answer and auto-advance after 6 seconds of silence so you can't hide in pauses.
+- **15 topics across 4 tracks.** Languages (JS/TS, Python, Go, Java, Rust), frameworks (React/Next, Node, FastAPI/Django), system design (frontend, backend, full-stack), infra (Docker/K8s, AWS, GraphQL) and a behavioral/STAR track.
+- **Configurable session length.** 5, 7 or 10 questions. Match the format to how much time you actually have.
+- **Mic-check gate.** No one gets to question one until the microphone actually works. Saves you from losing a session to a dead input.
+- **Feedback that's actually useful.** Per-question scoring out of 10, plus written feedback on what you said. Not a vague "good job." Model answers included so you can see the shape of a strong response.
+- **Full session history.** Every session stored locally in IndexedDB. Searchable, replayable, yours.
+- **Open source.** MIT. Fork it, break it, send a PR.
+
+## Why Client-Only, All the Way Down
+
+Three architectural decisions, one underlying belief: **your interview practice is nobody's business but yours.**
+
+**Bring your own OpenAI key.** The app never touches a server I control. You paste your key once, it's stored in your browser and every request goes directly from your device to OpenAI. I can't log your answers, build a "trending weak spots" dashboard or get breached and leak transcripts of you fumbling a system design question. The only reason to route this through a backend would be to harvest data. And I'm not interested.
+
+**IndexedDB for history, not a database I own.** Sessions live in your browser via Dexie. No account, no email, no "sign in with Google to continue." Clear your browser storage and the app genuinely forgets you. The way software used to work before every tool decided it needed your identity.
+
+**Browser-native audio capture straight to OpenAI.** MediaRecorder API grabs the audio, sends it directly to Whisper, gets a transcript back and feeds it to GPT for feedback. No transcoding server, no intermediate storage, no "we retain recordings for quality assurance." Fewer hops, lower latency and nothing to breach.
+
+The side effect of caring about privacy is that hosting costs round to zero and the whole thing deploys as static files to Vercel. Principle and pragmatism happened to agree.

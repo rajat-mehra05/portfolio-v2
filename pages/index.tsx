@@ -232,12 +232,22 @@ export default function Home({ location }) {
         <ul className="w-full">
           <li>
             <ProjectCard
+              href="/projects/voice-round"
+              title="VoiceRound"
+              brandColor={'#8B5CF6'}
+              projectLogo={SocialMedia}
+              stack={['react', 'typescript']}
+              description="An open-source AI mock-interview app that listens to you think out loud and tells you where you're losing the room."
+            />
+          </li>
+          <li>
+            <ProjectCard
               href="/projects/rundownly"
               title="Rundownly"
               brandColor={'#1BCF6C'}
               projectLogo={SocialMedia}
               stack={['react', 'nextjs', 'typescript']}
-              description="A 4MB desktop app that summarizes YouTube videos with structured summaries and timestamps. Built with Tauri 2, Next.js, and Rust."
+              description="A 4MB desktop app that summarizes YouTube videos with structured summaries and timestamps. Built with Tauri 2, Next.js and Rust."
             />
           </li>
           <li>
@@ -248,16 +258,6 @@ export default function Home({ location }) {
               projectLogo={SocialMedia}
               stack={['react', 'nextjs', 'typescript']}
               description="A JS/TS library for extracting YouTube transcripts with 450+ weekly npm downloads. No API keys required."
-            />
-          </li>
-          <li>
-            <ProjectCard
-              href="/projects/website-highlight-saver"
-              title="Website Highlight Saver"
-              brandColor={'#4F46E5'}
-              projectLogo={SocialMedia}
-              stack={['typescript', 'nodejs', 'react']}
-              description="A Chrome extension for highlighting webpage text, saving locally, and generating AI summaries."
             />
           </li>
         </ul>
