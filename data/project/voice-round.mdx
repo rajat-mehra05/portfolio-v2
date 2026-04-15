@@ -25,7 +25,7 @@ Then I figured other devs were probably white-knuckling the same problem. So I o
 
 - **React 19 + Vite 8 + TypeScript** for the framework
 - **Tailwind v4, Base UI, shadcn and Lucide** for the UI
-- **OpenAI SDK** with Whisper for transcription and GPT for feedback
+- **OpenAI SDK** with `gpt-4o-mini-transcribe` for speech-to-text, `gpt-4o-mini` for question generation and feedback, and `gpt-4o-mini-tts` (alloy voice) for the spoken interviewer
 - **Dexie (IndexedDB)** for session history
 - **React Router v7** for routing
 - **Vitest, Testing Library and MSW** for testing
@@ -35,21 +35,26 @@ Then I figured other devs were probably white-knuckling the same problem. So I o
 ## Key Features
 
 - **Voice-first sessions.** Speak your answer like you would in a real interview. 4-minute cap per answer and auto-advance after 6 seconds of silence so you can't hide in pauses.
-- **15 topics across 4 tracks.** Languages (JS/TS, Python, Go, Java, Rust), frameworks (React/Next, Node, FastAPI/Django), system design (frontend, backend, full-stack), infra (Docker/K8s, AWS, GraphQL) and a behavioral/STAR track.
+- **Spoken AI interviewer.** Questions are delivered in a calm staff-engineer voice alongside the on-screen transcript. Closer to the actual interview pressure you're training for.
+- **15 topics across 4 tracks.**
+  - _Languages_ — JS/TS, Python, Go, Java, Rust
+  - _Frameworks_ — React/Next, Node, FastAPI/Django
+  - _Concepts_ — system design (frontend, backend, full-stack), Docker/K8s, AWS, GraphQL
+  - _Behavioral_ — STAR-format questions
 - **Configurable session length.** 5, 7 or 10 questions. Match the format to how much time you actually have.
 - **Mic-check gate.** No one gets to question one until the microphone actually works. Saves you from losing a session to a dead input.
 - **Feedback that's actually useful.** Per-question scoring out of 10, plus written feedback on what you said. Not a vague "good job." Model answers included so you can see the shape of a strong response.
 - **Full session history.** Every session stored locally in IndexedDB. Searchable, replayable, yours.
-- **Open source.** MIT. Fork it, break it, send a PR.
+- **Open source.** Fork it, break it, send a PR.
 
 ## Why Client-Only, All the Way Down
 
-Three architectural decisions, one underlying belief: **your interview practice is nobody's business but yours.**
+Three architectural decisions, one und**MediaRecorder**erlying belief: **your interview practice is nobody's business but yours.**
 
 **Bring your own OpenAI key.** The app never touches a server I control. You paste your key once, it's stored in your browser and every request goes directly from your device to OpenAI. I can't log your answers, build a "trending weak spots" dashboard or get breached and leak transcripts of you fumbling a system design question. The only reason to route this through a backend would be to harvest data. And I'm not interested.
 
 **IndexedDB for history, not a database I own.** Sessions live in your browser via Dexie. No account, no email, no "sign in with Google to continue." Clear your browser storage and the app genuinely forgets you. The way software used to work before every tool decided it needed your identity.
 
-**Browser-native audio capture straight to OpenAI.** MediaRecorder API grabs the audio, sends it directly to Whisper, gets a transcript back and feeds it to GPT for feedback. No transcoding server, no intermediate storage, no "we retain recordings for quality assurance." Fewer hops, lower latency and nothing to breach.
+**Browser-native audio capture straight to OpenAI.** MediaRecorder API grabs your answer, sends it directly to OpenAI for transcription, gets text back and feeds it to the model for feedback. Spoken questions stream the other direction the same way. No transcoding server, no intermediate storage, no "we retain recordings for quality assurance." Fewer hops, lower latency and nothing to breach.
 
 The side effect of caring about privacy is that hosting costs round to zero and the whole thing deploys as static files to Vercel. Principle and pragmatism happened to agree.
