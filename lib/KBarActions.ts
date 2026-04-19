@@ -15,7 +15,6 @@ import { AiOutlineGithub, AiOutlineLinkedin, AiOutlineTwitter } from 'react-icon
 const SECTIONS = {
   blogs: 'Blogs',
   projects: 'Projects',
-  dashboard: 'Dashboard',
   home: 'Home',
   tweets: 'Tweets',
   goto: 'Go to',
