@@ -20,7 +20,7 @@ A 4MB desktop app that summarizes YouTube videos with structured summaries and t
 - Live: https://rundownly.vercel.app
 
 ### YouTube Transcript API
-JavaScript/TypeScript library for extracting YouTube transcripts. 450+ weekly npm downloads. Supports JSON, plain text, SRT, and WebVTT output formats.
+JavaScript/TypeScript library for extracting YouTube transcripts. 1000+ weekly npm downloads. Supports JSON, plain text, SRT, and WebVTT output formats.
 - GitHub: https://github.com/rajat-mehra05/youtube-transcript-api-js
 - NPM: https://npmjs.com/package/youtube-transcript-api-js
 

@@ -257,7 +257,7 @@ export default function Home({ location }) {
               brandColor={'#0EA5E9'}
               projectLogo={SocialMedia}
               stack={['react', 'nextjs', 'typescript']}
-              description="A JS/TS library for extracting YouTube transcripts with 450+ weekly npm downloads. No API keys required."
+              description="A JS/TS library for extracting YouTube transcripts with 1000+ weekly npm downloads. No API keys required."
             />
           </li>
         </ul>

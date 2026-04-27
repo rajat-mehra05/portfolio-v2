@@ -1,7 +1,7 @@
 ---
 title: 'YouTube Transcript API'
 publishedAt: '2026-01-24'
-description: 'A JavaScript/TypeScript library for extracting YouTube transcripts with 450+ weekly downloads on npm. No API keys, no Selenium. Supports multiple formats and languages.'
+description: 'A JavaScript/TypeScript library for extracting YouTube transcripts with 1000+ weekly downloads on npm. No API keys, no Selenium. Supports multiple formats and languages.'
 image: '/static/images/npm.png'
 github: 'https://github.com/rajat-mehra05/youtube-transcript-api-js'
 logo: '/static/images/npm.png'
@@ -11,11 +11,11 @@ slug: 'youtube-transcript-api'
 
 ## Why I Built This
 
-I was building a YouTube video summarizer and needed transcripts. The existing JavaScript libraries either required a YouTube API key or depended on Selenium for browser automation. I didn't want either - an API key adds friction for users, and Selenium is heavy for what should be a simple HTTP request.
+I wanted to play around with YouTube's transcript data but couldn't find a JS/TS library worth depending on. The existing options were either unmaintained, shipped without tests, required a YouTube API key or depended on Selenium for browser automation. An API key adds friction and Selenium is heavy for what should be a simple HTTP request.
 
-So I looked at how YouTube actually serves transcripts (it's an undocumented XML endpoint), reverse-engineered the request flow, and built a library that fetches transcripts with plain HTTP calls. No API keys, no browser automation, no dependencies beyond Axios.
+So I looked at how YouTube actually serves transcripts (it's an undocumented XML endpoint), reverse-engineered the request flow and built the library I wanted to use. Plain HTTP calls, written in TypeScript with proper types, covered with Jest tests and no dependencies beyond Axios.
 
-I also noticed the gap on npm - there wasn't a good JS/TS library for this. So I published it as a standalone package. It now has <Highlight color="cyan">450+ weekly downloads</Highlight> on npm.
+I also noticed the gap on npm. There wasn't a well-maintained JS/TS library for this so I published it as a standalone package. It now has <Highlight color="cyan">1000+ weekly downloads</Highlight> on npm.
 
 ## Tech Stack
 
@@ -34,7 +34,3 @@ I also noticed the gap on npm - there wasn't a good JS/TS library for this. So I
 - **CLI tool** - Extract transcripts from the command line without writing code.
 - **Proxy support** - Generic proxy and Webshare rotating proxy integration for high-volume use.
 - **Error handling** - Specific errors for unavailable videos, disabled transcripts, and rate limiting.
-
-## What Came Next
-
-This library became the transcript layer for [Rundownly](/projects/rundownly), a desktop YouTube summarizer I built with Tauri and Rust. The library handles transcript extraction; Rundownly adds AI summarization, timestamps, and a native desktop UI on top of it. What started as an npm package turned into the foundation for a full product.
