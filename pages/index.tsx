@@ -1,9 +1,4 @@
 import { useCallback } from 'react';
-import {
-  SiNextdotjs,
-  SiReact,
-  SiTypescript
-} from 'react-icons/si';
 import Image from 'next/image';
 import Link from 'next/link';
 import Container from '../components/Container';
@@ -141,29 +136,7 @@ export default function Home({ location }) {
             <div className="mt-3 text-gray-600 dark:text-gray-400 mb-16 ">
               <div>My favorite tech and tools &nbsp;</div>
               <div className="mt-2">
-                <div className="inline-flex items-center space-x-2 mr-2">
-                  <SiTypescript color={'#007acc'} />
-                  <p>TypeScript</p>
-                </div>
-                &nbsp;
-                <div className="inline-flex items-center space-x-2 mr-2">
-                  <SiReact color={'#61DBFB'} />
-                  <p>React</p>
-                </div>
-                &nbsp;
-                <div className="inline-flex items-center space-x-2 mr-2">
-                  <SiNextdotjs className="text-black dark:text-white" />
-                  <p>Next.js</p>
-                </div>
-                &nbsp;
-                <div className="inline-flex items-center space-x-2 mr-2">
-                  <p>Claude Code</p>
-                </div>
-                &nbsp;
-                <div className="inline-flex items-center space-x-2 mr-2">
-                  <p>Cursor</p>
-                </div>
-                &nbsp;
+                TypeScript, React, Next.js, Claude Code, Cursor
               </div>
             </div>
           </div>
