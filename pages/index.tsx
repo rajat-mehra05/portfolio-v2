@@ -24,8 +24,6 @@ export default function Home({ location }) {
   const handleProjectsCTAClick = useCallback(() => {
     trackEvent('Clicked all projects CTA', {});
   }, []);
-  const redGradient =
-    'bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 text-transparent bg-clip-text';
   return (
     <Container location={location}>
       <div className="flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-6">
@@ -34,43 +32,34 @@ export default function Home({ location }) {
             <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
               Hi, I'm Rajat!
             </h1>
-            <div className="space-y-3 mt-2">
-              <p className="text-gray-600 dark:text-gray-400 text-lg">
-                Frontend Engineer with a passion for{' '}
+            <p className="text-gray-700 dark:text-gray-300 text-lg mt-2">
+              <span className="group relative">
                 <span
                   className={clsx(
-                    redGradient,
-                    'transition-transform duration-500 ease-in-out hover:duration-300'
+                    'absolute -inset-0',
+                    'bg-gradient-to-r from-blue-500 to-purple-400',
+                    'rounded-lg opacity-20 blur group-hover:opacity-40 group-hover:blur-md',
+                    'animate-tilt transition-all duration-300 ease-in-out'
                   )}
-                >
-                  building scalable applications,{' '}
+                ></span>
+                <span className="relative bg-gradient-to-r from-blue-500 to-purple-400 bg-clip-text text-transparent">
+                  AI-native Frontend Engineer
                 </span>
-                <span>specializing in </span> {'\n'}
-                <span
-                  className={clsx(
-                    'bg-gradient-to-r from-green-500 to-blue-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-cyan-400 dark:to-green-500',
-                    'after:bg-gradient-to-r'
-                  )}
-                >
-                  modern web technologies{' '}
-                </span>
-                and{' '}
-                <span className="group relative">
-                  <span
-                    className={clsx(
-                      'absolute -inset-0',
-                      'bg-gradient-to-r from-blue-500 to-purple-400',
-                      'rounded-lg opacity-20 blur group-hover:opacity-40 group-hover:blur-md',
-                      'animate-tilt transition-all duration-300 ease-in-out'
-                    )}
-                  ></span>
-                  <span className="relative bg-gradient-to-r from-blue-500 to-purple-400 bg-clip-text text-transparent">
-                    AI-driven workflows.
-                  </span>
-                </span>{' '}
-              </p>
+              </span>{' '}
+              building scalable web apps, desktop apps and AI-driven tools.
+            </p>
+            <div className="space-y-3 mt-4">
               <p className="text-gray-600 dark:text-gray-400 text-lg">
-                I often ship{' '}
+                Creator of{' '}
+                <a
+                  href="https://voiceroundai.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-wavy decoration-pink-500 underline-offset-4 hover:text-pink-500 transition-colors duration-200"
+                >
+                  VoiceRoundAI
+                </a>
+                , an AI mock interviewer that runs in the browser and as a desktop app. I ship most of what I build as{' '}
                 <span
                   className={clsx(
                     'bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent',
@@ -78,16 +67,8 @@ export default function Home({ location }) {
                   )}
                 >
                   open source
-                </span>{' '}
-                tools whenever I get a chance - check out my{' '}
-                <a
-                  href="https://github.com/rajat-mehra05/youtube-transcript-api-js"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline decoration-wavy decoration-pink-500 underline-offset-4 hover:text-pink-500 transition-colors duration-200"
-                >
-                  awesome library
-                </a>.{' '}
+                </span>
+                .
               </p>
               <p className="text-gray-600 dark:text-gray-400 text-lg">
                 I care deeply about{' '}
@@ -158,7 +139,7 @@ export default function Home({ location }) {
             </div>
 
             <div className="mt-3 text-gray-600 dark:text-gray-400 mb-16 ">
-              <div>My favorite tech &nbsp;</div>
+              <div>My favorite tech and tools &nbsp;</div>
               <div className="mt-2">
                 <div className="inline-flex items-center space-x-2 mr-2">
                   <SiTypescript color={'#007acc'} />
@@ -173,6 +154,14 @@ export default function Home({ location }) {
                 <div className="inline-flex items-center space-x-2 mr-2">
                   <SiNextdotjs className="text-black dark:text-white" />
                   <p>Next.js</p>
+                </div>
+                &nbsp;
+                <div className="inline-flex items-center space-x-2 mr-2">
+                  <p>Claude Code</p>
+                </div>
+                &nbsp;
+                <div className="inline-flex items-center space-x-2 mr-2">
+                  <p>Cursor</p>
                 </div>
                 &nbsp;
               </div>
@@ -233,11 +222,11 @@ export default function Home({ location }) {
           <li>
             <ProjectCard
               href="/projects/voice-round"
-              title="VoiceRound"
+              title="VoiceRoundAI"
               brandColor={'#8B5CF6'}
               projectLogo={SocialMedia}
               stack={['react', 'typescript']}
-              description="An open-source AI mock-interview app that listens to you think out loud and tells you where you're losing the room."
+              description="AI mock interviewer for technical practice. Asks questions by voice, listens to your spoken answers and returns detailed feedback with ratings."
             />
           </li>
           <li>
